@@ -6,7 +6,7 @@
 Summary: Bonobo component system
 Name: libbonobo
 Version: 2.24.2
-Release: 4%{?dist}
+Release: 5%{?dist}
 URL: http://ftp.gnome.org
 Source0: http://download.gnome.org/sources/libbonobo/2.24/%{name}-%{version}.tar.bz2
 License: GPLv2+ and LGPLv2+
@@ -33,6 +33,9 @@ Patch1: memory-corruption.patch
 # updated translations
 # https://bugzilla.redhat.com/show_bug.cgi?id=589215
 Patch2: libbonobo-translations.patch
+
+# http://bugzilla.redhat.com/728458
+Patch3: dont-tank-on-invalid-server-files.patch
 
 %description
 Bonobo is a component system based on CORBA, used by the GNOME desktop.
@@ -66,6 +69,7 @@ use Bonobo.
 %endif
 %patch1 -p1 -b .memory-corruption
 %patch2 -p1 -b .translations
+%patch3 -p1 -b .dont-tank-on-invalid-server-files
 
 autoreconf -i
 autoreconf
@@ -134,6 +138,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gtk-doc/html/bonobo-activation
 
 %changelog
+* Thu Mar 01 2012 Ray Strode <rstrode@redhat.com> 2.24.2-5
+- Don't tank on invalid server files
+  Resolves: #728458
+
 * Mon Jun 21 2010 Matthias Clasen <mclasen@redhat.com> 2.24.2-4
 - Updated translations
 Resolves: #589215
