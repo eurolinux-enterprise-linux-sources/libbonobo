@@ -1,0 +1,226 @@
+<refentry id="bonobo-activation-Utilities">
+<refmeta>
+<refentrytitle role="top_of_page" id="bonobo-activation-Utilities.top_of_page">Utilities</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>BONOBO-ACTIVATION Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>Utilities</refname>
+<refpurpose>Random misc utilities to manipulate Bonobo_ServerInfo structures.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="bonobo-activation-Utilities.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+#include &lt;bonobo-activation/bonobo-activation.h&gt;
+
+enum                <link linkend="Bonobo-ActivationPropertyType">Bonobo_ActivationPropertyType</link>;
+<link linkend="Bonobo-ActivationProperty">Bonobo_ActivationProperty</link> * <link linkend="bonobo-server-info-prop-find">bonobo_server_info_prop_find</link>
+                                                        (<link linkend="Bonobo-ServerInfo">Bonobo_ServerInfo</link> *server,
+                                                         const <link linkend="char">char</link> *prop_name);
+<link linkend="Bonobo-ActivationID">Bonobo_ActivationID</link>  <link linkend="bonobo-activation-info-stringify">bonobo_activation_info_stringify</link>   (const <link linkend="BonoboActivationInfo">BonoboActivationInfo</link> *actinfo);
+<link linkend="BonoboActivationInfo">BonoboActivationInfo</link> * <link linkend="bonobo-activation-servinfo-to-actinfo">bonobo_activation_servinfo_to_actinfo</link>
+                                                        (const <link linkend="Bonobo-ServerInfo">Bonobo_ServerInfo</link> *servinfo);
+<link linkend="BonoboActivationInfo">BonoboActivationInfo</link> * <link linkend="bonobo-activation-id-parse">bonobo_activation_id_parse</link>       (const <link linkend="CORBA-char">CORBA_char</link> *actid);
+<link linkend="BonoboActivationInfo">BonoboActivationInfo</link> * <link linkend="bonobo-activation-info-new">bonobo_activation_info_new</link>       (void);
+<link linkend="void">void</link>                <link linkend="bonobo-activation-info-free">bonobo_activation_info_free</link>         (<link linkend="BonoboActivationInfo">BonoboActivationInfo</link> *actinfo);
+const <link linkend="char">char</link> *        <link linkend="bonobo-server-info-prop-lookup">bonobo_server_info_prop_lookup</link>      (<link linkend="Bonobo-ServerInfo">Bonobo_ServerInfo</link> *server,
+                                                         const <link linkend="char">char</link> *prop_name,
+                                                         <link linkend="GSList">GSList</link> *i18n_languages);
+typedef             <link linkend="Bonobo-ServerInfoList">Bonobo_ServerInfoList</link>;
+<link linkend="Bonobo-ServerInfo">Bonobo_ServerInfo</link> * <link linkend="bonobo-activation-get-default-component-for-mime-type">bonobo_activation_get_default_component_for_mime_type</link>
+                                                        (const <link linkend="char">char</link> *mime_type);
+<link linkend="GList">GList</link> *             <link linkend="bonobo-activation-get-all-components-for-mime-type">bonobo_activation_get_all_components_for_mime_type</link>
+                                                        (const <link linkend="char">char</link> *mime_type);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="bonobo-activation-Utilities.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="bonobo-activation-Utilities.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="Bonobo-ActivationPropertyType" role="enum">
+<title>enum Bonobo_ActivationPropertyType</title>
+<indexterm zone="Bonobo-ActivationPropertyType"><primary sortas="Bonobo_ActivationPropertyType">Bonobo_ActivationPropertyType</primary></indexterm><programlisting>typedef enum {
+  Bonobo_ACTIVATION_P_STRING,
+  Bonobo_ACTIVATION_P_NUMBER,
+  Bonobo_ACTIVATION_P_BOOLEAN,
+  Bonobo_ACTIVATION_P_STRINGV
+} Bonobo_ActivationPropertyType;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="bonobo-server-info-prop-find" role="function">
+<title>bonobo_server_info_prop_find ()</title>
+<indexterm zone="bonobo-server-info-prop-find"><primary sortas="bonobo_server_info_prop_find">bonobo_server_info_prop_find</primary></indexterm><programlisting><link linkend="Bonobo-ActivationProperty">Bonobo_ActivationProperty</link> * bonobo_server_info_prop_find
+                                                        (<link linkend="Bonobo-ServerInfo">Bonobo_ServerInfo</link> *server,
+                                                         const <link linkend="char">char</link> *prop_name);</programlisting>
+<para>
+Tries to find a server with the given property. Returns
+NULL if not found.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>server</parameter>&#160;:</term>
+<listitem><simpara> the server where to seek the data.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>prop_name</parameter>&#160;:</term>
+<listitem><simpara> the data to seek in the server.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a pointer to the <link linkend="Bonobo-ActivationProperty"><literal>Bonobo_ActivationProperty</literal></link> structure.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-activation-info-stringify" role="function" condition="deprecated:">
+<title>bonobo_activation_info_stringify ()</title>
+<indexterm zone="bonobo-activation-info-stringify" role="deprecated"><primary sortas="bonobo_activation_info_stringify">bonobo_activation_info_stringify</primary></indexterm><programlisting><link linkend="Bonobo-ActivationID">Bonobo_ActivationID</link>  bonobo_activation_info_stringify   (const <link linkend="BonoboActivationInfo">BonoboActivationInfo</link> *actinfo);</programlisting>
+<warning><para><literal>bonobo_activation_info_stringify</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+Serializes <parameter>actinfo</parameter> into a char *. Should be freed with <link linkend="g-free"><function>g_free()</function></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>actinfo</parameter>&#160;:</term>
+<listitem><simpara> the <link linkend="BonoboActivationInfo"><literal>BonoboActivationInfo</literal></link> to flatten.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the serialized version of <parameter>actinfo</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-activation-servinfo-to-actinfo" role="function" condition="deprecated:">
+<title>bonobo_activation_servinfo_to_actinfo ()</title>
+<indexterm zone="bonobo-activation-servinfo-to-actinfo" role="deprecated"><primary sortas="bonobo_activation_servinfo_to_actinfo">bonobo_activation_servinfo_to_actinfo</primary></indexterm><programlisting><link linkend="BonoboActivationInfo">BonoboActivationInfo</link> * bonobo_activation_servinfo_to_actinfo
+                                                        (const <link linkend="Bonobo-ServerInfo">Bonobo_ServerInfo</link> *servinfo);</programlisting>
+<warning><para><literal>bonobo_activation_servinfo_to_actinfo</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+This function converts a <link linkend="Bonobo-ServerInfo"><literal>Bonobo_ServerInfo</literal></link> structure to a
+<link linkend="BonoboActivationInfo"><literal>BonoboActivationInfo</literal></link> structure. The returned structure should
+be freed with bonobo_activation_info_free.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>servinfo</parameter>&#160;:</term>
+<listitem><simpara> An array of <link linkend="Bonobo-ServerInfo"><literal>Bonobo_ServerInfo</literal></link> structures.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a newly allocated initialized <link linkend="BonoboActivationInfo"><literal>BonoboActivationInfo</literal></link> structure.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-activation-id-parse" role="function" condition="deprecated:">
+<title>bonobo_activation_id_parse ()</title>
+<indexterm zone="bonobo-activation-id-parse" role="deprecated"><primary sortas="bonobo_activation_id_parse">bonobo_activation_id_parse</primary></indexterm><programlisting><link linkend="BonoboActivationInfo">BonoboActivationInfo</link> * bonobo_activation_id_parse       (const <link linkend="CORBA-char">CORBA_char</link> *actid);</programlisting>
+<warning><para><literal>bonobo_activation_id_parse</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+Returns a pointer to a newly allocated <link linkend="BonoboActivationInfo"><literal>BonoboActivationInfo</literal></link>
+structure (to be freed with bonobo_activation_info_free) initialized 
+with the data of <parameter>actid</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>actid</parameter>&#160;:</term>
+<listitem><simpara> the activation id structure.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the <link linkend="BonoboActivationInfo"><literal>BonoboActivationInfo</literal></link> corresponding to <parameter>actid</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-activation-info-new" role="function" condition="deprecated:">
+<title>bonobo_activation_info_new ()</title>
+<indexterm zone="bonobo-activation-info-new" role="deprecated"><primary sortas="bonobo_activation_info_new">bonobo_activation_info_new</primary></indexterm><programlisting><link linkend="BonoboActivationInfo">BonoboActivationInfo</link> * bonobo_activation_info_new       (void);</programlisting>
+<warning><para><literal>bonobo_activation_info_new</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+This function allocates a <link linkend="BonoboActicationInfo"><literal>BonoboActicationInfo</literal></link> structure and returns it.
+Should NOT be called from outside of this code.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a newly allocated non-initialized <link linkend="BonoboActicationInfo"><literal>BonoboActicationInfo</literal></link> structure.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-activation-info-free" role="function" condition="deprecated:">
+<title>bonobo_activation_info_free ()</title>
+<indexterm zone="bonobo-activation-info-free" role="deprecated"><primary sortas="bonobo_activation_info_free">bonobo_activation_info_free</primary></indexterm><programlisting><link linkend="void">void</link>                bonobo_activation_info_free         (<link linkend="BonoboActivationInfo">BonoboActivationInfo</link> *actinfo);</programlisting>
+<warning><para><literal>bonobo_activation_info_free</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+Frees <parameter>actinfo</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>actinfo</parameter>&#160;:</term>
+<listitem><simpara> the <link linkend="BonoboActivationInfo"><literal>BonoboActivationInfo</literal></link> structure to free.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-server-info-prop-lookup" role="function">
+<title>bonobo_server_info_prop_lookup ()</title>
+<indexterm zone="bonobo-server-info-prop-lookup"><primary sortas="bonobo_server_info_prop_lookup">bonobo_server_info_prop_lookup</primary></indexterm><programlisting>const <link linkend="char">char</link> *        bonobo_server_info_prop_lookup      (<link linkend="Bonobo-ServerInfo">Bonobo_ServerInfo</link> *server,
+                                                         const <link linkend="char">char</link> *prop_name,
+                                                         <link linkend="GSList">GSList</link> *i18n_languages);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>server</parameter>&#160;:</term>
+<listitem><simpara> 
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>prop_name</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>i18n_languages</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> 
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="Bonobo-ServerInfoList" role="typedef">
+<title>Bonobo_ServerInfoList</title>
+<indexterm zone="Bonobo-ServerInfoList"><primary sortas="Bonobo_ServerInfoList">Bonobo_ServerInfoList</primary></indexterm><programlisting>typedef CORBA_sequence_Bonobo_ServerInfo Bonobo_ServerInfoList;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="bonobo-activation-get-default-component-for-mime-type" role="function" condition="since:2.16.0">
+<title>bonobo_activation_get_default_component_for_mime_type ()</title>
+<indexterm zone="bonobo-activation-get-default-component-for-mime-type" role="2.16.0"><primary sortas="bonobo_activation_get_default_component_for_mime_type">bonobo_activation_get_default_component_for_mime_type</primary></indexterm><programlisting><link linkend="Bonobo-ServerInfo">Bonobo_ServerInfo</link> * bonobo_activation_get_default_component_for_mime_type
+                                                        (const <link linkend="char">char</link> *mime_type);</programlisting>
+<para>
+Query the MIME database for the default Bonobo component to be activated to 
+view files of MIME type <parameter>mime_type</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>mime_type</parameter>&#160;:</term>
+<listitem><simpara> a const char * containing a mime type, e.g. "image/png".
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a <link linkend="Bonobo-ServerInfo"><type>Bonobo_ServerInfo</type></link> * representing the OAF server to be activated
+to get a reference to the proper component.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since 2.16.0</para></refsect2>
+<refsect2 id="bonobo-activation-get-all-components-for-mime-type" role="function" condition="since:2.16.0">
+<title>bonobo_activation_get_all_components_for_mime_type ()</title>
+<indexterm zone="bonobo-activation-get-all-components-for-mime-type" role="2.16.0"><primary sortas="bonobo_activation_get_all_components_for_mime_type">bonobo_activation_get_all_components_for_mime_type</primary></indexterm><programlisting><link linkend="GList">GList</link> *             bonobo_activation_get_all_components_for_mime_type
+                                                        (const <link linkend="char">char</link> *mime_type);</programlisting>
+<para>
+Return an alphabetically sorted list of <link linkend="Bonobo-ServerInfo"><type>Bonobo_ServerInfo</type></link>
+data structures representing all Bonobo components registered
+to handle files of <parameter>mime_type</parameter> (and supertypes).</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>mime_type</parameter>&#160;:</term>
+<listitem><simpara> a const char * containing a mime type, e.g. "image/png".
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a <link linkend="GList"><type>GList</type></link> * where the elements are <link linkend="Bonobo-ServerInfo"><type>Bonobo_ServerInfo</type></link> *
+representing components that can handle <parameter>mime_type</parameter>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since 2.16.0</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

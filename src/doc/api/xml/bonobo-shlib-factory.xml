@@ -1,0 +1,278 @@
+<refentry id="libbonobo-bonobo-shlib-factory">
+<refmeta>
+<refentrytitle role="top_of_page" id="libbonobo-bonobo-shlib-factory.top_of_page">bonobo-shlib-factory</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBBONOBO Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>bonobo-shlib-factory</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libbonobo-bonobo-shlib-factory.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+<anchor id="BonoboShlibFactory"/>
+<synopsis>
+                    <link linkend="BonoboShlibFactory-struct">BonoboShlibFactory</link>;
+                    <link linkend="BonoboShlibFactoryClass">BonoboShlibFactoryClass</link>;
+<link linkend="BonoboShlibFactory">BonoboShlibFactory</link> * <link linkend="bonobo-shlib-factory-construct">bonobo_shlib_factory_construct</link>     (<link linkend="BonoboShlibFactory">BonoboShlibFactory</link> *factory,
+                                                         const <link linkend="char">char</link> *act_iid,
+                                                         <link linkend="PortableServer-POA">PortableServer_POA</link> poa,
+                                                         <link linkend="gpointer">gpointer</link> act_impl_ptr,
+                                                         <link linkend="GClosure">GClosure</link> *closure);
+<link linkend="BonoboShlibFactory">BonoboShlibFactory</link> * <link linkend="bonobo-shlib-factory-new">bonobo_shlib_factory_new</link>           (const <link linkend="char">char</link> *component_id,
+                                                         <link linkend="PortableServer-POA">PortableServer_POA</link> poa,
+                                                         <link linkend="gpointer">gpointer</link> act_impl_ptr,
+                                                         <link linkend="BonoboFactoryCallback">BonoboFactoryCallback</link> factory_cb,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+<link linkend="BonoboShlibFactory">BonoboShlibFactory</link> * <link linkend="bonobo-shlib-factory-new-closure">bonobo_shlib_factory_new_closure</link>   (const <link linkend="char">char</link> *act_iid,
+                                                         <link linkend="PortableServer-POA">PortableServer_POA</link> poa,
+                                                         <link linkend="gpointer">gpointer</link> act_impl_ptr,
+                                                         <link linkend="GClosure">GClosure</link> *factory_closure);
+<link linkend="Bonobo-Unknown">Bonobo_Unknown</link>      <link linkend="bonobo-shlib-factory-std">bonobo_shlib_factory_std</link>            (const <link linkend="char">char</link> *component_id,
+                                                         <link linkend="PortableServer-POA">PortableServer_POA</link> poa,
+                                                         <link linkend="gpointer">gpointer</link> act_impl_ptr,
+                                                         <link linkend="BonoboFactoryCallback">BonoboFactoryCallback</link> factory_cb,
+                                                         <link linkend="gpointer">gpointer</link> user_data,
+                                                         <link linkend="CORBA-Environment">CORBA_Environment</link> *ev);
+#define             <link linkend="BONOBO-OAF-SHLIB-FACTORY--CAPS">BONOBO_OAF_SHLIB_FACTORY</link>            (oafiid, descr, fn, data)
+#define             <link linkend="BONOBO-OAF-SHLIB-FACTORY-MULTI--CAPS">BONOBO_OAF_SHLIB_FACTORY_MULTI</link>      (oafiid, descr, fn, data)
+#define             <link linkend="BONOBO-ACTIVATION-SHLIB-FACTORY--CAPS">BONOBO_ACTIVATION_SHLIB_FACTORY</link>     (oafiid, descr, fn, data)
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="libbonobo-bonobo-shlib-factory.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="BonoboObject">BonoboObject</link>
+         +----<link linkend="BonoboGenericFactory">BonoboGenericFactory</link>
+               +----BonoboShlibFactory
+</synopsis>
+</refsect1>
+
+
+
+
+
+
+
+
+<refsect1 id="libbonobo-bonobo-shlib-factory.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="libbonobo-bonobo-shlib-factory.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="BonoboShlibFactory-struct" role="struct">
+<title>BonoboShlibFactory</title>
+<indexterm zone="BonoboShlibFactory-struct"><primary sortas="BonoboShlibFactory">BonoboShlibFactory</primary></indexterm><programlisting>typedef struct _BonoboShlibFactory BonoboShlibFactory;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="BonoboShlibFactoryClass" role="struct">
+<title>BonoboShlibFactoryClass</title>
+<indexterm zone="BonoboShlibFactoryClass"><primary sortas="BonoboShlibFactoryClass">BonoboShlibFactoryClass</primary></indexterm><programlisting>typedef struct {
+	BonoboGenericFactoryClass parent_class;
+} BonoboShlibFactoryClass;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="bonobo-shlib-factory-construct" role="function">
+<title>bonobo_shlib_factory_construct ()</title>
+<indexterm zone="bonobo-shlib-factory-construct"><primary sortas="bonobo_shlib_factory_construct">bonobo_shlib_factory_construct</primary></indexterm><programlisting><link linkend="BonoboShlibFactory">BonoboShlibFactory</link> * bonobo_shlib_factory_construct     (<link linkend="BonoboShlibFactory">BonoboShlibFactory</link> *factory,
+                                                         const <link linkend="char">char</link> *act_iid,
+                                                         <link linkend="PortableServer-POA">PortableServer_POA</link> poa,
+                                                         <link linkend="gpointer">gpointer</link> act_impl_ptr,
+                                                         <link linkend="GClosure">GClosure</link> *closure);</programlisting>
+<para>
+Initializes <parameter>c_factory</parameter> with the supplied data.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>factory</parameter>&#160;:</term>
+<listitem><simpara> The object to be initialized.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>act_iid</parameter>&#160;:</term>
+<listitem><simpara> The GOAD id that the new factory will implement.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>poa</parameter>&#160;:</term>
+<listitem><simpara> the poa.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>act_impl_ptr</parameter>&#160;:</term>
+<listitem><simpara> Activation shlib handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>closure</parameter>&#160;:</term>
+<listitem><simpara> The closure used to create new GnomeShlib object instances.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The initialized BonoboShlibFactory object.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-shlib-factory-new" role="function">
+<title>bonobo_shlib_factory_new ()</title>
+<indexterm zone="bonobo-shlib-factory-new"><primary sortas="bonobo_shlib_factory_new">bonobo_shlib_factory_new</primary></indexterm><programlisting><link linkend="BonoboShlibFactory">BonoboShlibFactory</link> * bonobo_shlib_factory_new           (const <link linkend="char">char</link> *component_id,
+                                                         <link linkend="PortableServer-POA">PortableServer_POA</link> poa,
+                                                         <link linkend="gpointer">gpointer</link> act_impl_ptr,
+                                                         <link linkend="BonoboFactoryCallback">BonoboFactoryCallback</link> factory_cb,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+This is a helper routine that simplifies the creation of factory
+objects for GNOME objects.  The <parameter>factory</parameter> function will be
+invoked by the CORBA server when a request arrives to create a new
+instance of an object supporting the Bonobo::Shlib interface.
+The factory callback routine is passed the <parameter>data</parameter> pointer to provide
+the creation function with some state information.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>component_id</parameter>&#160;:</term>
+<listitem><simpara> The GOAD id that this factory implements
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>poa</parameter>&#160;:</term>
+<listitem><simpara> the poa.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>act_impl_ptr</parameter>&#160;:</term>
+<listitem><simpara> Activation shlib handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>factory_cb</parameter>&#160;:</term>
+<listitem><simpara> A callback which is used to create new BonoboObject instances.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara> The closure data to be passed to the <parameter>factory</parameter> callback routine.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> A BonoboShlibFactory object that has an activated
+Bonobo::ShlibFactory object that has registered with the GNOME
+name server.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-shlib-factory-new-closure" role="function">
+<title>bonobo_shlib_factory_new_closure ()</title>
+<indexterm zone="bonobo-shlib-factory-new-closure"><primary sortas="bonobo_shlib_factory_new_closure">bonobo_shlib_factory_new_closure</primary></indexterm><programlisting><link linkend="BonoboShlibFactory">BonoboShlibFactory</link> * bonobo_shlib_factory_new_closure   (const <link linkend="char">char</link> *act_iid,
+                                                         <link linkend="PortableServer-POA">PortableServer_POA</link> poa,
+                                                         <link linkend="gpointer">gpointer</link> act_impl_ptr,
+                                                         <link linkend="GClosure">GClosure</link> *factory_closure);</programlisting>
+<para>
+This is a helper routine that simplifies the creation of factory
+objects for GNOME objects.  The <parameter>factory_closure</parameter> closure will be
+invoked by the CORBA server when a request arrives to create a new
+instance of an object supporting the Bonobo::Shlib interface.
+The factory callback routine is passed the <parameter>data</parameter> pointer to provide
+the creation function with some state information.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>act_iid</parameter>&#160;:</term>
+<listitem><simpara> The GOAD id that this factory implements
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>poa</parameter>&#160;:</term>
+<listitem><simpara> the poa.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>act_impl_ptr</parameter>&#160;:</term>
+<listitem><simpara> Activation shlib handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>factory_closure</parameter>&#160;:</term>
+<listitem><simpara> A closure which is used to create new BonoboObject instances.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> A BonoboShlibFactory object that has an activated
+Bonobo::ShlibFactory object that has registered with the GNOME
+name server.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-shlib-factory-std" role="function">
+<title>bonobo_shlib_factory_std ()</title>
+<indexterm zone="bonobo-shlib-factory-std"><primary sortas="bonobo_shlib_factory_std">bonobo_shlib_factory_std</primary></indexterm><programlisting><link linkend="Bonobo-Unknown">Bonobo_Unknown</link>      bonobo_shlib_factory_std            (const <link linkend="char">char</link> *component_id,
+                                                         <link linkend="PortableServer-POA">PortableServer_POA</link> poa,
+                                                         <link linkend="gpointer">gpointer</link> act_impl_ptr,
+                                                         <link linkend="BonoboFactoryCallback">BonoboFactoryCallback</link> factory_cb,
+                                                         <link linkend="gpointer">gpointer</link> user_data,
+                                                         <link linkend="CORBA-Environment">CORBA_Environment</link> *ev);</programlisting>
+<para>
+A Generic std shlib routine so we don't stick a load of code
+inside a public macro.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>component_id</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>poa</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>act_impl_ptr</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>factory_cb</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>ev</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> 0 on success, 1 on failure.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="BONOBO-OAF-SHLIB-FACTORY--CAPS" role="macro">
+<title>BONOBO_OAF_SHLIB_FACTORY()</title>
+<indexterm zone="BONOBO-OAF-SHLIB-FACTORY--CAPS"><primary sortas="BONOBO_OAF_SHLIB_FACTORY">BONOBO_OAF_SHLIB_FACTORY</primary></indexterm><programlisting>#define             BONOBO_OAF_SHLIB_FACTORY(oafiid, descr, fn, data)</programlisting>
+<para>
+Deprecated.  See <link linkend="BONOBO-ACTIVATION-SHLIB-FACTORY--CAPS"><function>BONOBO_ACTIVATION_SHLIB_FACTORY()</function></link>.
+</para><variablelist role="params">
+<varlistentry><term><parameter>oafiid</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>descr</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>fn</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="BONOBO-OAF-SHLIB-FACTORY-MULTI--CAPS" role="macro">
+<title>BONOBO_OAF_SHLIB_FACTORY_MULTI()</title>
+<indexterm zone="BONOBO-OAF-SHLIB-FACTORY-MULTI--CAPS"><primary sortas="BONOBO_OAF_SHLIB_FACTORY_MULTI">BONOBO_OAF_SHLIB_FACTORY_MULTI</primary></indexterm><programlisting>#define             BONOBO_OAF_SHLIB_FACTORY_MULTI(oafiid, descr, fn, data)</programlisting>
+<para>
+Deprecated.  See <link linkend="BONOBO-ACTIVATION-SHLIB-FACTORY--CAPS"><function>BONOBO_ACTIVATION_SHLIB_FACTORY()</function></link>.
+</para><variablelist role="params">
+<varlistentry><term><parameter>oafiid</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>descr</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>fn</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="BONOBO-ACTIVATION-SHLIB-FACTORY--CAPS" role="macro">
+<title>BONOBO_ACTIVATION_SHLIB_FACTORY()</title>
+<indexterm zone="BONOBO-ACTIVATION-SHLIB-FACTORY--CAPS"><primary sortas="BONOBO_ACTIVATION_SHLIB_FACTORY">BONOBO_ACTIVATION_SHLIB_FACTORY</primary></indexterm><programlisting>#define             BONOBO_ACTIVATION_SHLIB_FACTORY(oafiid, descr, fn, data)</programlisting>
+<para>
+  Macro that includes all boiler-plate code necessary to create an shlib
+  type factory.
+</para><variablelist role="params">
+<varlistentry><term><parameter>oafiid</parameter>&#160;:</term>
+<listitem><simpara>The factory's OAFIID
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>descr</parameter>&#160;:</term>
+<listitem><simpara>Description of the factory
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>fn</parameter>&#160;:</term>
+<listitem><simpara>Function (<link linkend="BonoboFactoryCallback"><type>BonoboFactoryCallback</type></link>) responsible for intantiating components
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara>Additional data to be passed to the callback
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,255 @@
+<refentry id="libbonobo-bonobo-main">
+<refmeta>
+<refentrytitle role="top_of_page" id="libbonobo-bonobo-main.top_of_page">bonobo-main</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBBONOBO Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>bonobo-main</refname>
+<refpurpose>Bonobo initialization.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libbonobo-bonobo-main.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gboolean">gboolean</link>            <link linkend="bonobo-is-initialized">bonobo_is_initialized</link>               (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="bonobo-init">bonobo_init</link>                         (<link linkend="int">int</link> *argc,
+                                                         <link linkend="char">char</link> **argv);
+<link linkend="gboolean">gboolean</link>            <link linkend="bonobo-init-full">bonobo_init_full</link>                    (<link linkend="int">int</link> *argc,
+                                                         <link linkend="char">char</link> **argv,
+                                                         <link linkend="CORBA-ORB--CAPS">CORBA_ORB</link> opt_orb,
+                                                         <link linkend="PortableServer-POA">PortableServer_POA</link> opt_poa,
+                                                         <link linkend="PortableServer-POAManager">PortableServer_POAManager</link> opt_manager);
+<link linkend="void">void</link>                <link linkend="bonobo-debug-init">bonobo_debug_init</link>                   (void);
+<link linkend="void">void</link>                <link linkend="bonobo-debug-print">bonobo_debug_print</link>                  (const <link linkend="char">char</link> *name,
+                                                         <link linkend="char">char</link> *fmt,
+                                                         ...);
+<link linkend="int">int</link>                 <link linkend="bonobo-debug-shutdown">bonobo_debug_shutdown</link>               (void);
+<link linkend="void">void</link>                <link linkend="bonobo-main">bonobo_main</link>                         (void);
+<link linkend="void">void</link>                <link linkend="bonobo-main-quit">bonobo_main_quit</link>                    (void);
+<link linkend="guint">guint</link>               <link linkend="bonobo-main-level">bonobo_main_level</link>                   (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="bonobo-activate">bonobo_activate</link>                     (void);
+<link linkend="void">void</link>                <link linkend="bonobo-setup-x-error-handler">bonobo_setup_x_error_handler</link>        (void);
+<link linkend="CORBA-ORB--CAPS">CORBA_ORB</link>           <link linkend="bonobo-orb">bonobo_orb</link>                          (void);
+<link linkend="PortableServer-POA">PortableServer_POA</link>  <link linkend="bonobo-poa">bonobo_poa</link>                          (void);
+<link linkend="PortableServer-POAManager">PortableServer_POAManager</link>  <link linkend="bonobo-poa-manager">bonobo_poa_manager</link>           (void);
+<link linkend="PortableServer-POA">PortableServer_POA</link>  <link linkend="bonobo-poa-get-threaded">bonobo_poa_get_threaded</link>             (<link linkend="ORBitThreadHint">ORBitThreadHint</link> hint,
+                                                         ...);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libbonobo-bonobo-main.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+  Initialization functions for Bonobo applications.
+</para>
+</refsect1>
+
+<refsect1 id="libbonobo-bonobo-main.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="bonobo-is-initialized" role="function">
+<title>bonobo_is_initialized ()</title>
+<indexterm zone="bonobo-is-initialized"><primary sortas="bonobo_is_initialized">bonobo_is_initialized</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            bonobo_is_initialized               (void);</programlisting>
+<para>
+This allows you to protect against double
+initialization in your code.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> whether the ORB is initialized
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-init" role="function">
+<title>bonobo_init ()</title>
+<indexterm zone="bonobo-init"><primary sortas="bonobo_init">bonobo_init</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            bonobo_init                         (<link linkend="int">int</link> *argc,
+                                                         <link linkend="char">char</link> **argv);</programlisting>
+<para>
+Initializes the bonobo component model.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>argc</parameter>&#160;:</term>
+<listitem><simpara> a pointer to the number of arguments or <link linkend="NULL--CAPS"><literal>NULL</literal></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>argv</parameter>&#160;:</term>
+<listitem><simpara> the array of arguments or <link linkend="NULL--CAPS"><literal>NULL</literal></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>%TRUE on success, or <link linkend="FALSE--CAPS"><literal>FALSE</literal></link> on failure.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-init-full" role="function">
+<title>bonobo_init_full ()</title>
+<indexterm zone="bonobo-init-full"><primary sortas="bonobo_init_full">bonobo_init_full</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            bonobo_init_full                    (<link linkend="int">int</link> *argc,
+                                                         <link linkend="char">char</link> **argv,
+                                                         <link linkend="CORBA-ORB--CAPS">CORBA_ORB</link> opt_orb,
+                                                         <link linkend="PortableServer-POA">PortableServer_POA</link> opt_poa,
+                                                         <link linkend="PortableServer-POAManager">PortableServer_POAManager</link> opt_manager);</programlisting>
+<para>
+Initializes the bonobo document model.  It requires at least
+the value for <parameter>orb</parameter>.  If <parameter>poa</parameter> is CORBA_OBJECT_NIL, then the
+RootPOA will be used, in this case <parameter>manager</parameter> should be CORBA_OBJECT_NIL.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>argc</parameter>&#160;:</term>
+<listitem><simpara> a pointer to the number of arguments
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>argv</parameter>&#160;:</term>
+<listitem><simpara> the array of arguments
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>opt_orb</parameter>&#160;:</term>
+<listitem><simpara> the ORB in which we run
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>opt_poa</parameter>&#160;:</term>
+<listitem><simpara> optional, a POA
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>opt_manager</parameter>&#160;:</term>
+<listitem><simpara> optional, a POA Manager
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>%TRUE on success, or <link linkend="FALSE--CAPS"><literal>FALSE</literal></link> on failure.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-debug-init" role="function">
+<title>bonobo_debug_init ()</title>
+<indexterm zone="bonobo-debug-init"><primary sortas="bonobo_debug_init">bonobo_debug_init</primary></indexterm><programlisting><link linkend="void">void</link>                bonobo_debug_init                   (void);</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="bonobo-debug-print" role="function">
+<title>bonobo_debug_print ()</title>
+<indexterm zone="bonobo-debug-print"><primary sortas="bonobo_debug_print">bonobo_debug_print</primary></indexterm><programlisting><link linkend="void">void</link>                bonobo_debug_print                  (const <link linkend="char">char</link> *name,
+                                                         <link linkend="char">char</link> *fmt,
+                                                         ...);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>fmt</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-debug-shutdown" role="function">
+<title>bonobo_debug_shutdown ()</title>
+<indexterm zone="bonobo-debug-shutdown"><primary sortas="bonobo_debug_shutdown">bonobo_debug_shutdown</primary></indexterm><programlisting><link linkend="int">int</link>                 bonobo_debug_shutdown               (void);</programlisting>
+<para>
+This shuts down the ORB and any other bonobo related
+resources.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> whether the shutdown was clean, a good
+value to return from 'main'.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-main" role="function">
+<title>bonobo_main ()</title>
+<indexterm zone="bonobo-main"><primary sortas="bonobo_main">bonobo_main</primary></indexterm><programlisting><link linkend="void">void</link>                bonobo_main                         (void);</programlisting>
+<para>
+Activates the Bonobo POA Manager and enters the main event loop.</para>
+<para>
+</para></refsect2>
+<refsect2 id="bonobo-main-quit" role="function">
+<title>bonobo_main_quit ()</title>
+<indexterm zone="bonobo-main-quit"><primary sortas="bonobo_main_quit">bonobo_main_quit</primary></indexterm><programlisting><link linkend="void">void</link>                bonobo_main_quit                    (void);</programlisting>
+<para>
+Quits the main event loop.</para>
+<para>
+</para></refsect2>
+<refsect2 id="bonobo-main-level" role="function">
+<title>bonobo_main_level ()</title>
+<indexterm zone="bonobo-main-level"><primary sortas="bonobo_main_level">bonobo_main_level</primary></indexterm><programlisting><link linkend="guint">guint</link>               bonobo_main_level                   (void);</programlisting>
+<para>
+Determines the number of times the bonobo main loop has been entered (minus
+the number of exits from the main loop).</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The number of main loops currently running (0 if no main loops are
+running).
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-activate" role="function">
+<title>bonobo_activate ()</title>
+<indexterm zone="bonobo-activate"><primary sortas="bonobo_activate">bonobo_activate</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            bonobo_activate                     (void);</programlisting>
+<para>
+Activates the Bonobo POA manager registered by bonobo_init.
+This should be called at the end of application initialization.
+You do not need to call this function if you use <link linkend="bonobo-main"><function>bonobo_main()</function></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>%TRUE on success, or <link linkend="FALSE--CAPS"><literal>FALSE</literal></link> on failure.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-setup-x-error-handler" role="function">
+<title>bonobo_setup_x_error_handler ()</title>
+<indexterm zone="bonobo-setup-x-error-handler"><primary sortas="bonobo_setup_x_error_handler">bonobo_setup_x_error_handler</primary></indexterm><programlisting><link linkend="void">void</link>                bonobo_setup_x_error_handler        (void);</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="bonobo-orb" role="function">
+<title>bonobo_orb ()</title>
+<indexterm zone="bonobo-orb"><primary sortas="bonobo_orb">bonobo_orb</primary></indexterm><programlisting><link linkend="CORBA-ORB--CAPS">CORBA_ORB</link>           bonobo_orb                          (void);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The ORB used for this Bonobo application.  The ORB
+is created in <link linkend="bonobo-init"><function>bonobo_init()</function></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-poa" role="function">
+<title>bonobo_poa ()</title>
+<indexterm zone="bonobo-poa"><primary sortas="bonobo_poa">bonobo_poa</primary></indexterm><programlisting><link linkend="PortableServer-POA">PortableServer_POA</link>  bonobo_poa                          (void);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The POA used for this Bonobo application.  The POA
+is created when <link linkend="bonobo-init"><function>bonobo_init()</function></link> is called.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-poa-manager" role="function">
+<title>bonobo_poa_manager ()</title>
+<indexterm zone="bonobo-poa-manager"><primary sortas="bonobo_poa_manager">bonobo_poa_manager</primary></indexterm><programlisting><link linkend="PortableServer-POAManager">PortableServer_POAManager</link>  bonobo_poa_manager           (void);</programlisting>
+<para>
+</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The POA Manager used for this Bonobo application.  The POA
+Manager is created when <link linkend="bonobo-init"><function>bonobo_init()</function></link> is called, but it is not
+activated until <link linkend="bonobo-main"><function>bonobo_main()</function></link> is called.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-poa-get-threaded" role="function">
+<title>bonobo_poa_get_threaded ()</title>
+<indexterm zone="bonobo-poa-get-threaded"><primary sortas="bonobo_poa_get_threaded">bonobo_poa_get_threaded</primary></indexterm><programlisting><link linkend="PortableServer-POA">PortableServer_POA</link>  bonobo_poa_get_threaded             (<link linkend="ORBitThreadHint">ORBitThreadHint</link> hint,
+                                                         ...);</programlisting>
+<para>
+Get a predefined POA for a given threading policy/hint.  The
+returned POA can be passed as the "poa" constructor property of a
+<link linkend="BonoboOject"><type>BonoboOject</type></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>hint</parameter>&#160;:</term>
+<listitem><simpara> the desired thread hint
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the requested POA.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,133 @@
+<refentry id="libbonobo-bonobo-running-context">
+<refmeta>
+<refentrytitle role="top_of_page" id="libbonobo-bonobo-running-context.top_of_page">BonoboRunningContext</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBBONOBO Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>BonoboRunningContext</refname>
+<refpurpose>a live object tracker</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libbonobo-bonobo-running-context.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="BonoboRunningContext">BonoboRunningContext</link>;
+                    <link linkend="BonoboRunningContextClass">BonoboRunningContextClass</link>;
+<link linkend="BonoboObject">BonoboObject</link> *      <link linkend="bonobo-running-context-new">bonobo_running_context_new</link>          (void);
+<link linkend="void">void</link>                <link linkend="bonobo-running-context-ignore-object">bonobo_running_context_ignore_object</link>
+                                                        (<link linkend="CORBA-Object">CORBA_Object</link> object);
+<link linkend="void">void</link>                <link linkend="bonobo-running-context-at-exit-unref">bonobo_running_context_at_exit_unref</link>
+                                                        (<link linkend="CORBA-Object">CORBA_Object</link> object);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libbonobo-bonobo-running-context.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+    <link linkend="BonoboRunningContext"><type>BonoboRunningContext</type></link> implements the
+    <classname>Bonobo::RunningContext</classname> IDL interface,
+    depicted in <xref linkend="running-context-img"/>.
+</para>
+<figure id="running-context-img">
+    <title>The Bonobo::RunningContext interface</title>
+    <mediaobject>
+	<imageobject>
+	    <imagedata fileref="running-context.png" format="PNG"/>
+	</imageobject>
+    </mediaobject>
+</figure>
+<para>
+    The purpose of this object is to keep track of currently running
+    objects.  This is useful in, for example, exe type factories, in
+    order to know when it is safe to quit from the main loop.
+</para>
+<para>
+    <link linkend="BonoboRunningContext"><type>BonoboRunningContext</type></link> is a singleton.  There is at most one
+    instance running at all times.  All <link linkend="BonoboObject"><type>BonoboObject</type></link>'s are
+    automatically registered with the running context as part of their
+    normal initialization procedure.
+</para>
+<para>
+    To find out when all objects have been destroyed, just connect a
+    handler to the "last-unref" signal.
+</para>
+</refsect1>
+
+<refsect1 id="libbonobo-bonobo-running-context.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="BonoboRunningContext" role="struct">
+<title>BonoboRunningContext</title>
+<indexterm zone="BonoboRunningContext"><primary sortas="BonoboRunningContext">BonoboRunningContext</primary></indexterm><programlisting>typedef struct {
+	BonoboObject parent;
+
+	BonoboRunningContextPrivate *priv;
+} BonoboRunningContext;
+</programlisting>
+<para>
+the running context data
+</para></refsect2>
+<refsect2 id="BonoboRunningContextClass" role="struct">
+<title>BonoboRunningContextClass</title>
+<indexterm zone="BonoboRunningContextClass"><primary sortas="BonoboRunningContextClass">BonoboRunningContextClass</primary></indexterm><programlisting>typedef struct {
+	BonoboObjectClass parent;
+
+	POA_Bonobo_RunningContext__epv epv;
+
+	void (*last_unref) (void);
+} BonoboRunningContextClass;
+</programlisting>
+<para>
+the running context class
+</para></refsect2>
+<refsect2 id="bonobo-running-context-new" role="function">
+<title>bonobo_running_context_new ()</title>
+<indexterm zone="bonobo-running-context-new"><primary sortas="bonobo_running_context_new">bonobo_running_context_new</primary></indexterm><programlisting><link linkend="BonoboObject">BonoboObject</link> *      bonobo_running_context_new          (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-running-context-ignore-object" role="function">
+<title>bonobo_running_context_ignore_object ()</title>
+<indexterm zone="bonobo-running-context-ignore-object"><primary sortas="bonobo_running_context_ignore_object">bonobo_running_context_ignore_object</primary></indexterm><programlisting><link linkend="void">void</link>                bonobo_running_context_ignore_object
+                                                        (<link linkend="CORBA-Object">CORBA_Object</link> object);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>object</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-running-context-at-exit-unref" role="function">
+<title>bonobo_running_context_at_exit_unref ()</title>
+<indexterm zone="bonobo-running-context-at-exit-unref"><primary sortas="bonobo_running_context_at_exit_unref">bonobo_running_context_at_exit_unref</primary></indexterm><programlisting><link linkend="void">void</link>                bonobo_running_context_at_exit_unref
+                                                        (<link linkend="CORBA-Object">CORBA_Object</link> object);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>object</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+<refsect1 id="libbonobo-bonobo-running-context.see-also">
+<title>See Also</title>
+<para>
+    <xref linkend="libbonobo-bonobo-generic-factory"/>
+</para>
+</refsect1>
+
+</refentry>

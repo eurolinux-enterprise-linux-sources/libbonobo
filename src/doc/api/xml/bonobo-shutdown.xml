@@ -1,0 +1,94 @@
+<refentry id="libbonobo-bonobo-shutdown">
+<refmeta>
+<refentrytitle role="top_of_page" id="libbonobo-bonobo-shutdown.top_of_page">bonobo-shutdown</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBBONOBO Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>bonobo-shutdown</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libbonobo-bonobo-shutdown.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="void">void</link>                <link linkend="bonobo-context-init">bonobo_context_init</link>                 (void);
+<link linkend="void">void</link>                <link linkend="bonobo-context-shutdown">bonobo_context_shutdown</link>             (void);
+<link linkend="int">int</link>                 <link linkend="bonobo-object-shutdown">bonobo_object_shutdown</link>              (void);
+<link linkend="void">void</link>                <link linkend="bonobo-exception-shutdown">bonobo_exception_shutdown</link>           (void);
+<link linkend="void">void</link>                <link linkend="bonobo-property-bag-shutdown">bonobo_property_bag_shutdown</link>        (void);
+<link linkend="void">void</link>                <link linkend="bonobo-running-context-shutdown">bonobo_running_context_shutdown</link>     (void);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libbonobo-bonobo-shutdown.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="libbonobo-bonobo-shutdown.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="bonobo-context-init" role="function">
+<title>bonobo_context_init ()</title>
+<indexterm zone="bonobo-context-init"><primary sortas="bonobo_context_init">bonobo_context_init</primary></indexterm><programlisting><link linkend="void">void</link>                bonobo_context_init                 (void);</programlisting>
+<para>
+Sets up the context system, internal use only, called
+by bonobo_init.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>void</parameter>&#160;:</term>
+<listitem><simpara> 
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-context-shutdown" role="function">
+<title>bonobo_context_shutdown ()</title>
+<indexterm zone="bonobo-context-shutdown"><primary sortas="bonobo_context_shutdown">bonobo_context_shutdown</primary></indexterm><programlisting><link linkend="void">void</link>                bonobo_context_shutdown             (void);</programlisting>
+<para>
+Shuts down the context system, internal use only</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>void</parameter>&#160;:</term>
+<listitem><simpara> 
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-object-shutdown" role="function">
+<title>bonobo_object_shutdown ()</title>
+<indexterm zone="bonobo-object-shutdown"><primary sortas="bonobo_object_shutdown">bonobo_object_shutdown</primary></indexterm><programlisting><link linkend="int">int</link>                 bonobo_object_shutdown              (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-exception-shutdown" role="function">
+<title>bonobo_exception_shutdown ()</title>
+<indexterm zone="bonobo-exception-shutdown"><primary sortas="bonobo_exception_shutdown">bonobo_exception_shutdown</primary></indexterm><programlisting><link linkend="void">void</link>                bonobo_exception_shutdown           (void);</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="bonobo-property-bag-shutdown" role="function">
+<title>bonobo_property_bag_shutdown ()</title>
+<indexterm zone="bonobo-property-bag-shutdown"><primary sortas="bonobo_property_bag_shutdown">bonobo_property_bag_shutdown</primary></indexterm><programlisting><link linkend="void">void</link>                bonobo_property_bag_shutdown        (void);</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="bonobo-running-context-shutdown" role="function">
+<title>bonobo_running_context_shutdown ()</title>
+<indexterm zone="bonobo-running-context-shutdown"><primary sortas="bonobo_running_context_shutdown">bonobo_running_context_shutdown</primary></indexterm><programlisting><link linkend="void">void</link>                bonobo_running_context_shutdown     (void);</programlisting>
+<para>
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>bonobo-context</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Libbonobo Reference Manual">
+<link rel="up" href="general.html" title="General">
+<link rel="prev" href="libbonobo-bonobo-types.html" title="bonobo-types">
+<link rel="next" href="libbonobo-bonobo-exception.html" title="bonobo-exception">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="general.html" title="General">
+<link rel="chapter" href="factories.html" title="Objects, Factories, Reference Counting">
+<link rel="chapter" href="property-bags.html" title="Property Bags, Events, Listeners">
+<link rel="chapter" href="monikers.html" title="Monikers">
+<link rel="chapter" href="streams.html" title="Storages and Streams">
+<link rel="chapter" href="persist.html" title="Persistency">
+<link rel="chapter" href="misc.html" title="Miscellaneous">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libbonobo-bonobo-types.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="general.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Libbonobo Reference Manual</th>
+<td><a accesskey="n" href="libbonobo-bonobo-exception.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libbonobo-bonobo-context.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#libbonobo-bonobo-context.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="bonobo-context">
+<a name="libbonobo-bonobo-context"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libbonobo-bonobo-context.top_of_page"></a>bonobo-context</span></h2>
+<p>bonobo-context — Extensible runtime service interface</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="libbonobo-bonobo-context.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+Bonobo_Unknown      <a class="link" href="libbonobo-bonobo-context.html#bonobo-context-get" title="bonobo_context_get ()">bonobo_context_get</a>                  (const CORBA_char *context_name,
+                                                         CORBA_Environment *opt_ev);
+void                <a class="link" href="libbonobo-bonobo-context.html#bonobo-context-add" title="bonobo_context_add ()">bonobo_context_add</a>                  (const CORBA_char *context_name,
+                                                         Bonobo_Unknown context);
+<a class="link" href="libbonobo-bonobo-object.html#BonoboObject">BonoboObject</a> *      <a class="link" href="libbonobo-bonobo-context.html#bonobo-context-running-get" title="bonobo_context_running_get ()">bonobo_context_running_get</a>          (void);
+void                <a class="link" href="libbonobo-bonobo-context.html#bonobo-running-context-auto-exit-unref" title="bonobo_running_context_auto_exit_unref ()">bonobo_running_context_auto_exit_unref</a>
+                                                        (<a class="link" href="libbonobo-bonobo-object.html#BonoboObject">BonoboObject</a> *object);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="libbonobo-bonobo-context.description"></a><h2>Description</h2>
+<p>
+The bonobo-context code is designed to provide a way to
+expose CORBA contexts through a single C interface. This
+is so that language bindings can get away with wrapping
+a single function, and yet have access to the whole
+Bonobo service framework. Two examples of this are the
+MonikerContext and the RunningContext ( see
+Bonobo_Context.idl ).
+</p>
+<p>
+  </p>
+<div class="example">
+<a name="id2951586"></a><p class="title"><b>Example 1. Getting and using the moniker context</b></p>
+<div class="example-contents"><pre class="programlisting">
+Bonobo_MonikerContext context;
+Bonobo_Unknown        object;
+context = bonobo_context_get ("Activation", NULL);
+if (context == CORBA_OBJECT_NIL)
+	g_error (_("Internal error, no activation context"));
+object = Bonobo_MonikerContext_getObject (
+	"file:/demo/a.jpeg", "Bonobo/Control", ev);
+...
+     </pre></div>
+</div>
+<p><br class="example-break">
+</p>
+<p>
+The list of contexts is open and may be expanded in the future,
+currently there are the following:
+  </p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>
+        Activation - Bonobo/MonikerContext
+      </p></li>
+<li class="listitem"><p>
+        Running - Bonobo/RunningContext
+      </p></li>
+</ul></div>
+<p>
+</p>
+<p>
+The running context is particularly useful for ensuring that
+server processes exit cleanly when all their objects and
+derived objects are dead. To do this we can simply do the
+following:
+</p>
+<p>
+  </p>
+<div class="example">
+<a name="id2951636"></a><p class="title"><b>Example 2. How to get a factory to quit when it is idle</b></p>
+<div class="example-contents"><pre class="programlisting">
+static void
+last_unref_exit_cb (gpointer      context,
+		    BonoboObject *factory)
+{
+        bonobo_object_unref (factory);
+	gtk_main_quit ();
+}
+...
+int main (int argc, char **argv)
+{
+	...
+	bonobo_running_context_ignore_object (BONOBO_OBJREF (object));
+	gtk_signal_connect (GTK_OBJECT (bonobo_context_running_get ()),
+			    "last_unref", last_unref_exit_cb, factory);
+	...
+	bonobo_main ();
+}
+    </pre></div>
+</div>
+<p><br class="example-break">
+</p>
+<p>
+  Since this is a commonly used thing there is a helper to make this
+easier:
+  </p>
+<div class="example">
+<a name="id2951660"></a><p class="title"><b>Example 3. How to get a factory to quit when it is idle</b></p>
+<div class="example-contents"><pre class="programlisting">
+bonobo_running_context_auto_exit_unref (factory)
+    </pre></div>
+</div>
+<p><br class="example-break">
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="libbonobo-bonobo-context.details"></a><h2>Details</h2>
+<div class="refsect2" title="bonobo_context_get ()">
+<a name="bonobo-context-get"></a><h3>bonobo_context_get ()</h3>
+<pre class="programlisting">Bonobo_Unknown      bonobo_context_get                  (const CORBA_char *context_name,
+                                                         CORBA_Environment *opt_ev);</pre>
+<p>
+The most useful context is named 'Activation' and returns
+the IDL:Bonobo/ActivationContext:1.0 interface.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context_name</code></em> :</span></p></td>
+<td> the name of the context
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>opt_ev</code></em> :</span></p></td>
+<td> optional Environment, or NULL
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new reference to a global Bonobo context or CORBA_OBJECT_NIL
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_context_add ()">
+<a name="bonobo-context-add"></a><h3>bonobo_context_add ()</h3>
+<pre class="programlisting">void                bonobo_context_add                  (const CORBA_char *context_name,
+                                                         Bonobo_Unknown context);</pre>
+<p>
+This function adds a new context to the context system</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context_name</code></em> :</span></p></td>
+<td> the name to refer to the context by
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td> The Bonobo_Unknown; a ref. is taken on this.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_context_running_get ()">
+<a name="bonobo-context-running-get"></a><h3>bonobo_context_running_get ()</h3>
+<pre class="programlisting"><a class="link" href="libbonobo-bonobo-object.html#BonoboObject">BonoboObject</a> *      bonobo_context_running_get          (void);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_running_context_auto_exit_unref ()">
+<a name="bonobo-running-context-auto-exit-unref"></a><h3>bonobo_running_context_auto_exit_unref ()</h3>
+<pre class="programlisting">void                bonobo_running_context_auto_exit_unref
+                                                        (<a class="link" href="libbonobo-bonobo-object.html#BonoboObject">BonoboObject</a> *object);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

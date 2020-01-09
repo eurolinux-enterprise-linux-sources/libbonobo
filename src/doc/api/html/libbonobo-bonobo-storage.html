@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>bonobo-storage</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Libbonobo Reference Manual">
+<link rel="up" href="streams.html" title="Storages and Streams">
+<link rel="prev" href="libbonobo-bonobo-stream-memory.html" title="BonoboStreamMem">
+<link rel="next" href="libbonobo-bonobo-stream-client.html" title="bonobo-stream-client">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="general.html" title="General">
+<link rel="chapter" href="factories.html" title="Objects, Factories, Reference Counting">
+<link rel="chapter" href="property-bags.html" title="Property Bags, Events, Listeners">
+<link rel="chapter" href="monikers.html" title="Monikers">
+<link rel="chapter" href="streams.html" title="Storages and Streams">
+<link rel="chapter" href="persist.html" title="Persistency">
+<link rel="chapter" href="misc.html" title="Miscellaneous">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libbonobo-bonobo-stream-memory.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="streams.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Libbonobo Reference Manual</th>
+<td><a accesskey="n" href="libbonobo-bonobo-stream-client.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libbonobo-bonobo-storage.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#libbonobo-bonobo-storage.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="bonobo-storage">
+<a name="libbonobo-bonobo-storage"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libbonobo-bonobo-storage.top_of_page"></a>bonobo-storage</span></h2>
+<p>bonobo-storage — Abstract implementation of the Bonobo::Storage interface</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="libbonobo-bonobo-storage.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+void                <a class="link" href="libbonobo-bonobo-storage.html#bonobo-storage-copy-to" title="bonobo_storage_copy_to ()">bonobo_storage_copy_to</a>              (Bonobo_Storage src,
+                                                         Bonobo_Storage dest,
+                                                         CORBA_Environment *ev);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="libbonobo-bonobo-storage.description"></a><h2>Description</h2>
+<p>
+The BonoboStorage C interface is extremely simple, this is since
+the CORBA client interface is where the action occurs. It is
+anticipated that relatively few people need to implement the
+Bonobo/Storage IDL interface.
+</p>
+<p>
+The common entry point for BonoboStorage is that of opening a
+storage using the bonobo_storage_open function, perhaps by a
+container to use to persist a compound document:
+  </p>
+<div class="example">
+<a name="id3045270"></a><p class="title"><b>Example 23. An example storage use case</b></p>
+<div class="example-contents"><pre class="programlisting">
+void
+container_save (SampleApp         *app,
+                const char        *filename,
+                CORBA_Environment *ev)
+{
+	BonoboStorage *storage;
+	Bonobo_Storage corba_storage;
+	GList *components;
+	int i;
+	storage = bonobo_storage_open (STORAGE_TYPE, filename,
+				       Bonobo_Storage_READ |
+				       Bonobo_Storage_WRITE |
+				       Bonobo_Storage_CREATE,
+				       0664);
+	g_return_if_fail (storage);
+	corba_storage = BONOBO_OBJREF (storage);
+	...
+	Serialize components to streams created in the storage
+	...
+	Bonobo_Storage_commit (corba_storage, ev);
+	CORBA_exception_free (ev);
+	bonobo_object_unref (BONOBO_OBJECT (storage));
+}
+     </pre></div>
+</div>
+<p><br class="example-break">
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="libbonobo-bonobo-storage.details"></a><h2>Details</h2>
+<div class="refsect2" title="bonobo_storage_copy_to ()">
+<a name="bonobo-storage-copy-to"></a><h3>bonobo_storage_copy_to ()</h3>
+<pre class="programlisting">void                bonobo_storage_copy_to              (Bonobo_Storage src,
+                                                         Bonobo_Storage dest,
+                                                         CORBA_Environment *ev);</pre>
+<p>
+Implements a pure CORBA method for copying one storage into
+another, this is used by several BonoboStorage implemetations
+where a fast case localy copy cannot work.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td> the source storage
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
+<td> the destination storage
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ev</code></em> :</span></p></td>
+<td> CORBA exception environment
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="See Also">
+<a name="libbonobo-bonobo-storage.see-also"></a><h2>See Also</h2>
+<p>
+<a class="link" href="libbonobo-bonobo-persist.html#BonoboPersist"><span class="type">BonoboPersist</span></a> <a class="link" href="libbonobo-bonobo-persist-stream.html#BonoboPersistStream"><span class="type">BonoboPersistStream</span></a>
+</p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

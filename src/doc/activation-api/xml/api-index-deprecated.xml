@@ -1,0 +1,9 @@
+<indexdiv>
+<indexdiv><title>B</title>
+<indexentry><primaryie linkends="bonobo-activation-id-parse"><link linkend="bonobo-activation-id-parse">bonobo_activation_id_parse</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-info-free"><link linkend="bonobo-activation-info-free">bonobo_activation_info_free</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-info-new"><link linkend="bonobo-activation-info-new">bonobo_activation_info_new</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-info-stringify"><link linkend="bonobo-activation-info-stringify">bonobo_activation_info_stringify</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-servinfo-to-actinfo"><link linkend="bonobo-activation-servinfo-to-actinfo">bonobo_activation_servinfo_to_actinfo</link></primaryie></indexentry>
+</indexdiv>
+</indexdiv>

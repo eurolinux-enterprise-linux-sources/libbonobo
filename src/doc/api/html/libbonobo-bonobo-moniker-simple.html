@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>BonoboMonikerSimple</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Libbonobo Reference Manual">
+<link rel="up" href="monikers.html" title="Monikers">
+<link rel="prev" href="libbonobo-bonobo-moniker.html" title="BonoboMoniker">
+<link rel="next" href="libbonobo-bonobo-moniker-util.html" title="bonobo-moniker-util">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="general.html" title="General">
+<link rel="chapter" href="factories.html" title="Objects, Factories, Reference Counting">
+<link rel="chapter" href="property-bags.html" title="Property Bags, Events, Listeners">
+<link rel="chapter" href="monikers.html" title="Monikers">
+<link rel="chapter" href="streams.html" title="Storages and Streams">
+<link rel="chapter" href="persist.html" title="Persistency">
+<link rel="chapter" href="misc.html" title="Miscellaneous">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libbonobo-bonobo-moniker.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="monikers.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Libbonobo Reference Manual</th>
+<td><a accesskey="n" href="libbonobo-bonobo-moniker-util.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libbonobo-bonobo-moniker-simple.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#libbonobo-bonobo-moniker-simple.description" class="shortcut">Description</a>
+                 | 
+                <a href="#libbonobo-bonobo-moniker-simple.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry" title="BonoboMonikerSimple">
+<a name="libbonobo-bonobo-moniker-simple"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libbonobo-bonobo-moniker-simple.top_of_page"></a>BonoboMonikerSimple</span></h2>
+<p>BonoboMonikerSimple — A super easy to use moniker implementation wrapper</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="libbonobo-bonobo-moniker-simple.synopsis"></a><h2>Synopsis</h2>
+<a name="BonoboMonikerSimple"></a><pre class="synopsis">
+                    <a class="link" href="libbonobo-bonobo-moniker-simple.html#BonoboMonikerSimple-struct" title="BonoboMonikerSimple">BonoboMonikerSimple</a>;
+                    <a class="link" href="libbonobo-bonobo-moniker-simple.html#BonoboMonikerSimpleClass" title="BonoboMonikerSimpleClass">BonoboMonikerSimpleClass</a>;
+Bonobo_Unknown      (<a class="link" href="libbonobo-bonobo-moniker-simple.html#BonoboMonikerSimpleResolveFn" title="BonoboMonikerSimpleResolveFn ()">*BonoboMonikerSimpleResolveFn</a>)     (<a class="link" href="libbonobo-bonobo-moniker.html#BonoboMoniker">BonoboMoniker</a> *moniker,
+                                                         const Bonobo_ResolveOptions *options,
+                                                         const CORBA_char *requested_interface,
+                                                         CORBA_Environment *ev);
+<a class="link" href="libbonobo-bonobo-moniker.html#BonoboMoniker">BonoboMoniker</a> *     <a class="link" href="libbonobo-bonobo-moniker-simple.html#bonobo-moniker-simple-construct" title="bonobo_moniker_simple_construct ()">bonobo_moniker_simple_construct</a>     (<a class="link" href="libbonobo-bonobo-moniker-simple.html#BonoboMonikerSimple">BonoboMonikerSimple</a> *moniker,
+                                                         const char *name,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *resolve_closure);
+<a class="link" href="libbonobo-bonobo-moniker.html#BonoboMoniker">BonoboMoniker</a> *     <a class="link" href="libbonobo-bonobo-moniker-simple.html#bonobo-moniker-simple-new" title="bonobo_moniker_simple_new ()">bonobo_moniker_simple_new</a>           (const char *name,
+                                                         <a class="link" href="libbonobo-bonobo-moniker-simple.html#BonoboMonikerSimpleResolveFn" title="BonoboMonikerSimpleResolveFn ()">BonoboMonikerSimpleResolveFn</a> resolve_fn);
+<a class="link" href="libbonobo-bonobo-moniker.html#BonoboMoniker">BonoboMoniker</a> *     <a class="link" href="libbonobo-bonobo-moniker-simple.html#bonobo-moniker-simple-new-closure" title="bonobo_moniker_simple_new_closure ()">bonobo_moniker_simple_new_closure</a>   (const char *name,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *resolve_closure);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="libbonobo-bonobo-moniker-simple.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a class="link" href="libbonobo-bonobo-object.html#BonoboObject">BonoboObject</a>
+         +----<a class="link" href="libbonobo-bonobo-moniker.html#BonoboMoniker">BonoboMoniker</a>
+               +----BonoboMonikerSimple
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="libbonobo-bonobo-moniker-simple.description"></a><h2>Description</h2>
+<p>
+BonoboMonikerSimple makes writing monikers really extremely
+easy. To implement a moniker you only have to write 1 function.
+To register create the moniker object you have to use only 1
+call. It can't get much simpler. If you want to use monikers
+instead of implementing them, you probably want to see
+<span class="type">bonobo-moniker-util</span> instead.
+</p>
+<p>
+Few people need to implement monikers, but if they do, this
+is how they should do it:
+  </p>
+<div class="example">
+<a name="id3027921"></a><p class="title"><b>Example 15. A cut down file: moniker implementation</b></p>
+<div class="example-contents"><pre class="programlisting">
+Bonobo_Unknown
+bonobo_moniker_file_resolve (BonoboMoniker               *moniker,
+			     const Bonobo_ResolveOptions *options,
+			     const CORBA_char            *requested_interface,
+			     CORBA_Environment           *ev)
+{
+	const char    *fname = bonobo_moniker_get_name (moniker);
+	Bonobo_Unknown retval;
+	g_warning ("Fname '%s'", fname);
+	if (!strcmp (requested_interface, "IDL:Bonobo/Stream:1.0")) {
+		BonoboStream *stream;
+		stream = bonobo_stream_open ("fs", fname,
+					     Bonobo_Storage_READ, 0664);
+		if (!stream) {
+			g_warning ("Failed to open stream '%s'", fname);
+			CORBA_exception_set (ev, CORBA_USER_EXCEPTION,
+					     ex_Bonobo_Moniker_InterfaceNotFound, NULL);
+			return CORBA_OBJECT_NIL;
+		}
+		return CORBA_Object_duplicate (BONOBO_OBJREF (stream), ev);
+	}
+	return CORBA_OBJECT_NIL;
+}
+    </pre></div>
+</div>
+<p><br class="example-break">
+  After implementing the resolve function, you need to create the new moniker
+in your standard factory:
+  </p>
+<div class="example">
+<a name="id3027962"></a><p class="title"><b>Example 16. Creating a new simple moniker</b></p>
+<div class="example-contents"><pre class="programlisting">
+static BonoboObject *
+bonobo_std_moniker_factory (BonoboGenericFactory *this,
+			    const char           *object_id,
+			    void                 *data)
+{
+	g_return_val_if_fail (object_id != NULL, NULL);
+	if (!strcmp (object_id, "OAFIID:Bonobo_Moniker_File"))
+		return BONOBO_OBJECT (bonobo_moniker_simple_new (
+			"file:", bonobo_moniker_file_resolve));
+	else
+		return NULL;
+}
+    </pre></div>
+</div>
+<p><br class="example-break">
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="libbonobo-bonobo-moniker-simple.details"></a><h2>Details</h2>
+<div class="refsect2" title="BonoboMonikerSimple">
+<a name="BonoboMonikerSimple-struct"></a><h3>BonoboMonikerSimple</h3>
+<pre class="programlisting">typedef struct _BonoboMonikerSimple BonoboMonikerSimple;</pre>
+<p>
+A simplified <a class="link" href="libbonobo-bonobo-moniker.html#BonoboMoniker"><span class="type">BonoboMoniker</span></a>.
+</p>
+</div>
+<hr>
+<div class="refsect2" title="BonoboMonikerSimpleClass">
+<a name="BonoboMonikerSimpleClass"></a><h3>BonoboMonikerSimpleClass</h3>
+<pre class="programlisting">typedef struct {
+	BonoboMonikerClass parent_class;
+} BonoboMonikerSimpleClass;
+</pre>
+<p>
+BonoboMonikerSimple's class.
+</p>
+</div>
+<hr>
+<div class="refsect2" title="BonoboMonikerSimpleResolveFn ()">
+<a name="BonoboMonikerSimpleResolveFn"></a><h3>BonoboMonikerSimpleResolveFn ()</h3>
+<pre class="programlisting">Bonobo_Unknown      (*BonoboMonikerSimpleResolveFn)     (<a class="link" href="libbonobo-bonobo-moniker.html#BonoboMoniker">BonoboMoniker</a> *moniker,
+                                                         const Bonobo_ResolveOptions *options,
+                                                         const CORBA_char *requested_interface,
+                                                         CORBA_Environment *ev);</pre>
+<p>
+Type of callback function that implements a simple moniker resolution.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>moniker</code></em> :</span></p></td>
+<td>the moniker
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>options</code></em> :</span></p></td>
+<td>resolve options
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>requested_interface</code></em> :</span></p></td>
+<td>the requested interface (repoid string)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ev</code></em> :</span></p></td>
+<td>CORBA environment, in case an exception needs to be raised
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a Bonobo_Unknown as the result of the resolution
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_moniker_simple_construct ()">
+<a name="bonobo-moniker-simple-construct"></a><h3>bonobo_moniker_simple_construct ()</h3>
+<pre class="programlisting"><a class="link" href="libbonobo-bonobo-moniker.html#BonoboMoniker">BonoboMoniker</a> *     bonobo_moniker_simple_construct     (<a class="link" href="libbonobo-bonobo-moniker-simple.html#BonoboMonikerSimple">BonoboMonikerSimple</a> *moniker,
+                                                         const char *name,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *resolve_closure);</pre>
+<p>
+Constructs a simple moniker</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>moniker</code></em> :</span></p></td>
+<td> the moniker to construct
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td> the name of the moniker eg. 'file:'
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>resolve_closure</code></em> :</span></p></td>
+<td> the closure used to resolve the moniker
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the constructed moniker or NULL on failure.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_moniker_simple_new ()">
+<a name="bonobo-moniker-simple-new"></a><h3>bonobo_moniker_simple_new ()</h3>
+<pre class="programlisting"><a class="link" href="libbonobo-bonobo-moniker.html#BonoboMoniker">BonoboMoniker</a> *     bonobo_moniker_simple_new           (const char *name,
+                                                         <a class="link" href="libbonobo-bonobo-moniker-simple.html#BonoboMonikerSimpleResolveFn" title="BonoboMonikerSimpleResolveFn ()">BonoboMonikerSimpleResolveFn</a> resolve_fn);</pre>
+<p>
+Create a new instance of a simplified moniker.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td> the display name for the moniker
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>resolve_fn</code></em> :</span></p></td>
+<td> a resolve function for the moniker
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the moniker object
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_moniker_simple_new_closure ()">
+<a name="bonobo-moniker-simple-new-closure"></a><h3>bonobo_moniker_simple_new_closure ()</h3>
+<pre class="programlisting"><a class="link" href="libbonobo-bonobo-moniker.html#BonoboMoniker">BonoboMoniker</a> *     bonobo_moniker_simple_new_closure   (const char *name,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *resolve_closure);</pre>
+<p>
+Create a new instance of a simplified moniker.
+</p>
+<p>
+Instead of the Bonobo_ResolveOptions struct, the closure takes its
+contents as two arguments: BONOBO_TYPE_RESOLVE_FLAG and G_TYPE_LONG.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td> the display name for the moniker
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>resolve_closure</code></em> :</span></p></td>
+<td> a closure for the resolve process.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the moniker object
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="See Also">
+<a name="libbonobo-bonobo-moniker-simple.see-also"></a><h2>See Also</h2>
+<p>
+<a class="link" href="libbonobo-bonobo-moniker.html#BonoboMoniker"><span class="type">BonoboMoniker</span></a>, <a class="link" href="libbonobo-bonobo-moniker-simple.html#BonoboMonikerSimple"><span class="type">BonoboMonikerSimple</span></a>, <span class="type">bonobo-moniker-util</span>, <a class="link" href="libbonobo-bonobo-moniker-extender.html#BonoboMonikerExtender"><span class="type">BonoboMonikerExtender</span></a>
+</p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

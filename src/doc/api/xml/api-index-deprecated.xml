@@ -1,0 +1,15 @@
+<indexdiv>
+<indexdiv><title>B</title>
+<indexentry><primaryie linkends="BonoboPersistFile-struct"><link linkend="BonoboPersistFile-struct">BonoboPersistFile</link></primaryie></indexentry>
+<indexentry><primaryie linkends="BonoboPersistFileClass"><link linkend="BonoboPersistFileClass">BonoboPersistFileClass</link></primaryie></indexentry>
+<indexentry><primaryie linkends="BonoboPersistFileIOFn"><link linkend="BonoboPersistFileIOFn">BonoboPersistFileIOFn</link></primaryie></indexentry>
+<indexentry><primaryie linkends="BonoboPersistStream-struct"><link linkend="BonoboPersistStream-struct">BonoboPersistStream</link></primaryie></indexentry>
+<indexentry><primaryie linkends="BonoboPersistStreamClass"><link linkend="BonoboPersistStreamClass">BonoboPersistStreamClass</link></primaryie></indexentry>
+<indexentry><primaryie linkends="BonoboPersistStreamIOFn"><link linkend="BonoboPersistStreamIOFn">BonoboPersistStreamIOFn</link></primaryie></indexentry>
+<indexentry><primaryie linkends="BonoboPersistStreamTypesFn"><link linkend="BonoboPersistStreamTypesFn">BonoboPersistStreamTypesFn</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-persist-file-construct"><link linkend="bonobo-persist-file-construct">bonobo_persist_file_construct</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-persist-file-new"><link linkend="bonobo-persist-file-new">bonobo_persist_file_new</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-persist-stream-construct"><link linkend="bonobo-persist-stream-construct">bonobo_persist_stream_construct</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-persist-stream-new"><link linkend="bonobo-persist-stream-new">bonobo_persist_stream_new</link></primaryie></indexentry>
+</indexdiv>
+</indexdiv>

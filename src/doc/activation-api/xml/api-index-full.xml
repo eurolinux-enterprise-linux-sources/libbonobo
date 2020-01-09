@@ -1,0 +1,46 @@
+<indexdiv>
+<indexdiv><title>B</title>
+<indexentry><primaryie linkends="BonoboActivationCallback"><link linkend="BonoboActivationCallback">BonoboActivationCallback</link></primaryie></indexentry>
+<indexentry><primaryie linkends="BonoboActivationPlugin"><link linkend="BonoboActivationPlugin">BonoboActivationPlugin</link></primaryie></indexentry>
+<indexentry><primaryie linkends="BonoboActivationPluginObject"><link linkend="BonoboActivationPluginObject">BonoboActivationPluginObject</link></primaryie></indexentry>
+<indexentry><primaryie linkends="Bonobo-ActivationFlags"><link linkend="Bonobo-ActivationFlags">Bonobo_ActivationFlags</link></primaryie></indexentry>
+<indexentry><primaryie linkends="Bonobo-ActivationID"><link linkend="Bonobo-ActivationID">Bonobo_ActivationID</link></primaryie></indexentry>
+<indexentry><primaryie linkends="Bonobo-ActivationPropertyType"><link linkend="Bonobo-ActivationPropertyType">Bonobo_ActivationPropertyType</link></primaryie></indexentry>
+<indexentry><primaryie linkends="Bonobo-ActivationResultType"><link linkend="Bonobo-ActivationResultType">Bonobo_ActivationResultType</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-activate"><link linkend="bonobo-activation-activate">bonobo_activation_activate</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-activate-async"><link linkend="bonobo-activation-activate-async">bonobo_activation_activate_async</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-activate-from-id"><link linkend="bonobo-activation-activate-from-id">bonobo_activation_activate_from_id</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-activate-from-id-async"><link linkend="bonobo-activation-activate-from-id-async">bonobo_activation_activate_from_id_async</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-debug-shutdown"><link linkend="bonobo-activation-debug-shutdown">bonobo_activation_debug_shutdown</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-get-all-components-for-mime-type"><link linkend="bonobo-activation-get-all-components-for-mime-type">bonobo_activation_get_all_components_for_mime_type</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-get-default-component-for-mime-type"><link linkend="bonobo-activation-get-default-component-for-mime-type">bonobo_activation_get_default_component_for_mime_type</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-id-parse"><link linkend="bonobo-activation-id-parse">bonobo_activation_id_parse</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-iid-get"><link linkend="bonobo-activation-iid-get">bonobo_activation_iid_get</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-info-free"><link linkend="bonobo-activation-info-free">bonobo_activation_info_free</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-info-new"><link linkend="bonobo-activation-info-new">bonobo_activation_info_new</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-info-stringify"><link linkend="bonobo-activation-info-stringify">bonobo_activation_info_stringify</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-init"><link linkend="bonobo-activation-init">bonobo_activation_init</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-is-initialized"><link linkend="bonobo-activation-is-initialized">bonobo_activation_is_initialized</link></primaryie></indexentry>
+<indexentry><primaryie linkends="BONOBO-ACTIVATION-MAJOR-VERSION--CAPS"><link linkend="BONOBO-ACTIVATION-MAJOR-VERSION--CAPS">BONOBO_ACTIVATION_MAJOR_VERSION</link></primaryie></indexentry>
+<indexentry><primaryie linkends="BONOBO-ACTIVATION-MICRO-VERSION--CAPS"><link linkend="BONOBO-ACTIVATION-MICRO-VERSION--CAPS">BONOBO_ACTIVATION_MICRO_VERSION</link></primaryie></indexentry>
+<indexentry><primaryie linkends="BONOBO-ACTIVATION-MINOR-VERSION--CAPS"><link linkend="BONOBO-ACTIVATION-MINOR-VERSION--CAPS">BONOBO_ACTIVATION_MINOR_VERSION</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-name-service-get"><link linkend="bonobo-activation-name-service-get">bonobo_activation_name_service_get</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-orb-get"><link linkend="bonobo-activation-orb-get">bonobo_activation_orb_get</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-orb-init"><link linkend="bonobo-activation-orb-init">bonobo_activation_orb_init</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-plugin-unuse"><link linkend="bonobo-activation-plugin-unuse">bonobo_activation_plugin_unuse</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-plugin-use"><link linkend="bonobo-activation-plugin-use">bonobo_activation_plugin_use</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-query"><link linkend="bonobo-activation-query">bonobo_activation_query</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-register-active-server"><link linkend="bonobo-activation-register-active-server">bonobo_activation_register_active_server</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-registration-env-free"><link linkend="bonobo-activation-registration-env-free">bonobo_activation_registration_env_free</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-registration-env-set"><link linkend="bonobo-activation-registration-env-set">bonobo_activation_registration_env_set</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-registration-env-set-global"><link linkend="bonobo-activation-registration-env-set-global">bonobo_activation_registration_env_set_global</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-servinfo-to-actinfo"><link linkend="bonobo-activation-servinfo-to-actinfo">bonobo_activation_servinfo_to_actinfo</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-set-activation-env-value"><link linkend="bonobo-activation-set-activation-env-value">bonobo_activation_set_activation_env_value</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-activation-unregister-active-server"><link linkend="bonobo-activation-unregister-active-server">bonobo_activation_unregister_active_server</link></primaryie></indexentry>
+<indexentry><primaryie linkends="Bonobo-ImplementationID"><link linkend="Bonobo-ImplementationID">Bonobo_ImplementationID</link></primaryie></indexentry>
+<indexentry><primaryie linkends="Bonobo-RegistrationResult"><link linkend="Bonobo-RegistrationResult">Bonobo_RegistrationResult</link></primaryie></indexentry>
+<indexentry><primaryie linkends="Bonobo-ServerInfoList"><link linkend="Bonobo-ServerInfoList">Bonobo_ServerInfoList</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-server-info-prop-find"><link linkend="bonobo-server-info-prop-find">bonobo_server_info_prop_find</link></primaryie></indexentry>
+<indexentry><primaryie linkends="bonobo-server-info-prop-lookup"><link linkend="bonobo-server-info-prop-lookup">bonobo_server_info_prop_lookup</link></primaryie></indexentry>
+</indexdiv>
+</indexdiv>

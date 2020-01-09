@@ -1,0 +1,829 @@
+# libbonoboui translation to Valencian (southern Catalan).
+# Copyright © 2001, 2002, 2003, 2005, 2006 Free Software Foundation, Inc.
+# Softcatalà <tradgnome@softcatala.org>, 2001, 2002.
+# Jordi Mallach <jordi@sindominio.net>, 2003, 2005, 2006.
+# Miquel Esplà <miquelespla@gmail.com>, 2009 [valencian variant adaptation].
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libbonoboui 2.11.92\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-05-25 00:27+0200\n"
+"PO-Revision-Date: 2008-01-27 11:05+0100\n"
+"Last-Translator: Jordi Mallach <jordi@sindominio.net>\n"
+"Language-Team: Catalan <tradgnome@softcatala.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../activation-server/activation-context-corba.c:530
+msgid "Couldn't find which child the server was listed in"
+msgstr ""
+
+#: ../activation-server/activation-context-corba.c:822
+msgid "Not a valid Activation ID"
+msgstr ""
+
+#: ../activation-server/activation-server-main.c:176
+msgid "Directory to read .server files from"
+msgstr ""
+
+#: ../activation-server/activation-server-main.c:176
+msgid "DIRECTORY"
+msgstr ""
+
+#: ../activation-server/activation-server-main.c:179
+msgid "Serve as an ActivationContext (default is as an ObjectDirectory only)"
+msgstr ""
+
+#: ../activation-server/activation-server-main.c:183
+msgid "File descriptor to write IOR to"
+msgstr ""
+
+#: ../activation-server/activation-server-main.c:183
+#: ../bonobo-activation/bonobo-activation-init.c:352
+#: ../bonobo-activation/bonobo-activation-init.c:397
+msgid "FD"
+msgstr ""
+
+#: ../activation-server/activation-server-main.c:186
+msgid ""
+"Register as the user's activation server without locking.  Warning: this "
+"option can have dangerous side effects on the stability of the user's "
+"running session, and should only be used for debugging purposes"
+msgstr ""
+
+#: ../activation-server/activation-server-main.c:194
+msgid "Query expression to evaluate"
+msgstr ""
+
+#: ../activation-server/activation-server-main.c:194
+msgid "EXPRESSION"
+msgstr ""
+
+#: ../activation-server/activation-server-main.c:547
+#: ../utils/bonobo-activation-sysconf.c:305
+#, c-format
+msgid "Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+
+#: ../activation-server/Bonobo_CosNaming_NamingContext.server.in.in.h:1
+msgid "CORBA CosNaming service."
+msgstr ""
+
+#: ../activation-server/Bonobo_CosNaming_NamingContext.server.in.in.h:2
+msgid "Name service"
+msgstr ""
+
+#: ../activation-server/Bonobo_CosNaming_NamingContext.server.in.in.h:3
+msgid "Notification service"
+msgstr ""
+
+#: ../activation-server/Bonobo_CosNaming_NamingContext.server.in.in.h:4
+msgid "Notification service for activation"
+msgstr ""
+
+#: ../activation-server/object-directory-activate.c:235
+msgid "We don't handle activating shlib objects in a remote process yet"
+msgstr ""
+
+#: ../activation-server/object-directory-config-file.c:65
+#, c-format
+msgid ""
+"The Bonobo Activation configuration file was not read successfully. Please, "
+"check it is valid in: %s"
+msgstr ""
+
+#: ../activation-server/object-directory-load.c:102
+msgid "a NULL iid is not valid"
+msgstr ""
+
+#: ../activation-server/object-directory-load.c:106
+#, c-format
+msgid "iid %s has a NULL type"
+msgstr ""
+
+#: ../activation-server/object-directory-load.c:110
+#, c-format
+msgid "iid %s has a NULL location"
+msgstr ""
+
+#: ../activation-server/object-directory-load.c:119
+#, c-format
+msgid "invalid character '%c' in iid '%s'"
+msgstr ""
+
+#: ../activation-server/object-directory-load.c:349
+#, c-format
+msgid "Property '%s' has no value"
+msgstr ""
+
+#: ../activation-server/object-directory-load.c:583
+#, c-format
+msgid "Could not parse badly formed XML document %s"
+msgstr ""
+
+#: ../activation-server/object-directory-load.c:629
+#, c-format
+msgid "Trying dir %s"
+msgstr ""
+
+#: ../bonobo-activation/bonobo-activation-fork-server.c:107
+msgid "Child process did not give an error message, unknown failure occurred"
+msgstr ""
+
+#: ../bonobo-activation/bonobo-activation-fork-server.c:237
+#, c-format
+msgid "Failed to read from child process: %s\n"
+msgstr ""
+
+#: ../bonobo-activation/bonobo-activation-fork-server.c:247
+#, c-format
+msgid "EOF from child process\n"
+msgstr ""
+
+#: ../bonobo-activation/bonobo-activation-fork-server.c:438
+msgid "Couldn't spawn a new process"
+msgstr ""
+
+#: ../bonobo-activation/bonobo-activation-init.c:352
+#: ../bonobo-activation/bonobo-activation-init.c:397
+msgid "File descriptor to print IOR on"
+msgstr ""
+
+#: ../bonobo-activation/bonobo-activation-init.c:354
+#: ../bonobo-activation/bonobo-activation-init.c:399
+#, fuzzy
+msgid "IID to activate"
+msgstr "Inactiu"
+
+#: ../bonobo-activation/bonobo-activation-init.c:356
+#: ../bonobo-activation/bonobo-activation-init.c:401
+msgid "Prevent registering of server with OAF"
+msgstr ""
+
+#: ../bonobo-activation/bonobo-activation-init.c:409
+msgid "Bonobo Activation options:"
+msgstr ""
+
+#: ../bonobo-activation/bonobo-activation-init.c:410
+msgid "Show Bonobo Activation options"
+msgstr ""
+
+#: ../bonobo-activation/bonobo-activation-init.c:518
+msgid "Bonobo activation options"
+msgstr ""
+
+#: ../bonobo-activation/bonobo-activation-shlib.c:107
+#, c-format
+msgid "g_module_open of `%s' failed with `%s'"
+msgstr ""
+
+#: ../bonobo-activation/bonobo-activation-shlib.c:126
+#: ../bonobo-activation/bonobo-activation-shlib.c:163
+#, c-format
+msgid "Can't find symbol Bonobo_Plugin_info in `%s'"
+msgstr ""
+
+#: ../bonobo-activation/bonobo-activation-shlib.c:212
+#, c-format
+msgid "Factory `%s' returned NIL for `%s'"
+msgstr ""
+
+#: ../bonobo-activation/bonobo-activation-shlib.c:229
+#, c-format
+msgid "Shlib `%s' didn't contain `%s'"
+msgstr ""
+
+#: ../bonobo/bonobo-application.c:352
+msgid "Name"
+msgstr "Nom"
+
+#: ../bonobo/bonobo-application.c:352
+msgid "Application unique name"
+msgstr ""
+
+#: ../bonobo/bonobo-object.c:929
+msgid "POA"
+msgstr ""
+
+#: ../bonobo/bonobo-object.c:929
+msgid "Custom CORBA POA"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:154
+msgid "An unsupported action was attempted"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:157
+msgid "IO Error"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:160
+msgid "Invalid argument value"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:164
+msgid "Object not found"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:167
+msgid "Syntax error in object description"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:172
+msgid "Cannot activate object from factory"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:177
+msgid "No permission to access stream"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:180
+msgid "An unsupported stream action was attempted"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:183
+msgid "IO Error on stream"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:187
+msgid "IO Error on storage"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:190
+msgid "Name already exists in storage"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:193
+msgid "Object not found in storage"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:196
+msgid "No permission to do operation on storage"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:198
+msgid "An unsupported storage action was attempted"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:200
+msgid "Object is not a stream"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:203
+msgid "Object is not a storage"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:206
+msgid "Storage is not empty"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:210
+msgid "malformed user interface XML description"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:213
+msgid "invalid path to XML user interface element"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:216
+msgid "the requested UI attribute didn't exist"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:219
+msgid "Unknown command or verb"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:222
+msgid "Command is insensitive"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:226
+msgid "incorrect data type"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:229
+msgid "stream not found"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:233
+msgid "property not found"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:236
+msgid "property has invalid type"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:239
+#, fuzzy
+msgid "property is read only"
+msgstr "Només els textos _prioritaris"
+
+#: ../bonobo/bonobo-exception.c:242
+msgid "config database backend failed "
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:246
+msgid "Moniker interface cannot be found"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:249
+msgid "Moniker activation timed out"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:252
+msgid "Syntax error within moniker"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:255
+msgid "Moniker has an unknown moniker prefix"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:279
+msgid "Error checking error; no exception"
+msgstr ""
+
+#: ../bonobo/bonobo-exception.c:288
+msgid "General activation error with no description"
+msgstr ""
+
+#: ../bonobo/bonobo-moniker.c:342
+#, c-format
+msgid "Failed to resolve, or extend '%s"
+msgstr ""
+
+#: ../bonobo/bonobo-moniker-util.c:247
+msgid "Failed to activate object"
+msgstr ""
+
+#: ../monikers/bonobo-moniker-oaf.c:53
+#, c-format
+msgid "Exception activating '%s'"
+msgstr ""
+
+#: ../monikers/bonobo-moniker-oaf.c:62
+#, c-format
+msgid "Failed to activate '%s'"
+msgstr ""
+
+#: ../monikers/Bonobo_Moniker_std.server.in.in.h:1
+msgid "HTTP Moniker"
+msgstr ""
+
+#: ../monikers/Bonobo_Moniker_std.server.in.in.h:2
+msgid "ORB IOR handling moniker"
+msgstr ""
+
+#: ../monikers/Bonobo_Moniker_std.server.in.in.h:3
+msgid "Standard Moniker factory"
+msgstr ""
+
+#: ../monikers/Bonobo_Moniker_std.server.in.in.h:4
+msgid "generic Oaf activation moniker"
+msgstr ""
+
+#: ../monikers/Bonobo_Moniker_std.server.in.in.h:5
+msgid "generic Oaf query moniker"
+msgstr ""
+
+#: ../monikers/Bonobo_Moniker_std.server.in.in.h:6
+msgid "generic factory 'new' moniker"
+msgstr ""
+
+#: ../monikers/Bonobo_Moniker_std.server.in.in.h:7
+msgid "generic item moniker"
+msgstr ""
+
+#: ../monikers/Bonobo_Moniker_std.server.in.in.h:8
+msgid "stream MonikerExtender"
+msgstr ""
+
+#: ../samples/echo/Bonobo_Sample_Echo.server.in.in.h:1
+msgid "Bonobo Echo server factory"
+msgstr ""
+
+#: ../samples/echo/Bonobo_Sample_Echo.server.in.in.h:2
+msgid "Bonobo Echo server sample program"
+msgstr ""
+
+#: ../samples/echo/Bonobo_Sample_Echo.server.in.in.h:3
+msgid "Echo component"
+msgstr ""
+
+#: ../samples/echo/Bonobo_Sample_Echo.server.in.in.h:4
+#, fuzzy
+msgid "Echo component factory"
+msgstr "Navegador de components Bonobo"
+
+#: ../samples/echo/echo-client.c:24
+#, fuzzy
+msgid "I could not initialize Bonobo"
+msgstr "No es pot inicialitzar la interfície d'usuari del Bonobo"
+
+#: ../samples/echo/echo-client.c:35
+msgid "Could not create an instance of the sample echo component"
+msgstr ""
+
+#: ../samples/echo/echo-client.c:47
+#, c-format
+msgid "An exception occurred '%s'"
+msgstr ""
+
+#: ../utils/bonobo-activation-sysconf.c:83
+#, c-format
+msgid "Could not save configuration file.\n"
+msgstr ""
+
+#: ../utils/bonobo-activation-sysconf.c:84
+#, c-format
+msgid "Please, make sure you have permissions to write to '%s'.\n"
+msgstr ""
+
+#: ../utils/bonobo-activation-sysconf.c:87
+#, c-format
+msgid "Successfully wrote configuration file.\n"
+msgstr ""
+
+#: ../utils/bonobo-activation-sysconf.c:104
+#, c-format
+msgid ""
+"configuration file is:\n"
+"    %s\n"
+msgstr ""
+
+#: ../utils/bonobo-activation-sysconf.c:146
+#, c-format
+msgid "%s already in configuration file\n"
+msgstr ""
+
+#: ../utils/bonobo-activation-sysconf.c:166
+#, c-format
+msgid "there is not a properly structured configuration file\n"
+msgstr ""
+
+#: ../utils/bonobo-activation-sysconf.c:237
+#, c-format
+msgid "Bonobo-activation configuration file contains:\n"
+msgstr ""
+
+#: ../utils/bonobo-activation-sysconf.c:267
+msgid "Directory to remove from configuration file"
+msgstr ""
+
+#: ../utils/bonobo-activation-sysconf.c:267
+#: ../utils/bonobo-activation-sysconf.c:269
+msgid "PATH"
+msgstr ""
+
+#: ../utils/bonobo-activation-sysconf.c:269
+msgid "Directory to add to configuration file"
+msgstr ""
+
+#: ../utils/bonobo-activation-sysconf.c:271
+msgid "Display directories in configuration file"
+msgstr ""
+
+#: ../utils/bonobo-activation-sysconf.c:273
+msgid "Display path to configuration file"
+msgstr ""
+
+#~ msgid "corba factory"
+#~ msgstr "fàbrica de CORBA"
+
+#~ msgid "The factory pointer"
+#~ msgstr "El punter de la fàbrica"
+
+#~ msgid "corba UI container"
+#~ msgstr "El contenidor UI de CORBA"
+
+#~ msgid "The User interface container"
+#~ msgstr "El contenidor de la interfície d'usuari"
+
+#~ msgid "Dock the toolbar"
+#~ msgstr "Acobla la barra d'eines"
+
+#~ msgid "Undock the toolbar"
+#~ msgstr "Separa la barra d'eines"
+
+#~ msgid "Shadow type"
+#~ msgstr "Tipus d'ombra"
+
+#~ msgid "Orientation"
+#~ msgstr "Orientació"
+
+#~ msgid "Preferred width"
+#~ msgstr "Amplada preferida"
+
+#~ msgid "Preferred height"
+#~ msgstr "Alçada preferida"
+
+#~ msgid "Select a file to open"
+#~ msgstr "Seleccioneu un fitxer a obrir"
+
+#~ msgid "Select files to open"
+#~ msgstr "Seleccioneu els fitxers a obrir"
+
+#~ msgid "Select a filename to save"
+#~ msgstr "Seleccioneu un nom de fitxer per a alçar"
+
+#~ msgid "Event Forwarding"
+#~ msgstr "Reenviament de l'esdeveniment"
+
+#~ msgid "Whether X events should be forwarded"
+#~ msgstr "Si s'haurien de reenviar els esdeveniments X"
+
+#~ msgid "Description"
+#~ msgstr "Descripció"
+
+#~ msgid "Interfaces required"
+#~ msgstr "Interfícies requerides"
+
+#~ msgid ""
+#~ "A NULL-terminated array of interfaces which a server must support in "
+#~ "order to be listed in the selector. Defaults to \"IDL:Bonobo/"
+#~ "Embeddable:1.0\" if no interfaces are listed"
+#~ msgstr ""
+#~ "Una matriu d'interfícies acabada en NULL que un servidor ha de saber "
+#~ "gestionar per ser llistada en el selector. Si no es llista cap interfície "
+#~ "s'utilitzarà la «IDL:Bonobo/Embeddable:1.0» com a predeterminada"
+
+#~ msgid "Interface required entry"
+#~ msgstr "Entrada d'interfície requerida"
+
+#~ msgid "One of the interfaces that's required"
+#~ msgstr "Una de les interfícies que es requereix"
+
+#~ msgid "Visible"
+#~ msgstr "Visible"
+
+#~ msgid "_Show"
+#~ msgstr "Mo_stra"
+
+#~ msgid "_Hide"
+#~ msgstr "_Amaga"
+
+#~ msgid "_View tooltips"
+#~ msgstr "_Mostra els indicadors de funcions"
+
+#~ msgid "Toolbars"
+#~ msgstr "Barres d'eines"
+
+#~ msgid "toolbars"
+#~ msgstr "barres d'eines"
+
+#~ msgid "Look"
+#~ msgstr "Aspecte"
+
+#~ msgid "_Icon"
+#~ msgstr "_Icona"
+
+#~ msgid "_Text and Icon"
+#~ msgstr "_Text i icona"
+
+#~ msgid "Text only"
+#~ msgstr "Només text"
+
+#~ msgid "Debug"
+#~ msgstr "Depuració"
+
+#~ msgid "_Dump XML"
+#~ msgstr "_Bolca en XML"
+
+#~ msgid "Dump the entire UI's XML description to the console"
+#~ msgstr ""
+#~ "Bolca la descripció sencera de la interfície d'usuari en XML a la consola"
+
+#~ msgid "Configure UI"
+#~ msgstr "Configura la interfície d'usuari"
+
+#~ msgid "Gdk debugging flags to set"
+#~ msgstr "Senyaladors de depuració del Gdk a definir"
+
+#~ msgid "FLAGS"
+#~ msgstr "SENYALADORS"
+
+#~ msgid "Gdk debugging flags to unset"
+#~ msgstr "Senyaladors de depuració del Gdk dels quals desfer-ne la definició"
+
+#~ msgid "X display to use"
+#~ msgstr "Visualització X a utilitzar"
+
+#~ msgid "DISPLAY"
+#~ msgstr "VISUALITZACIÓ"
+
+#~ msgid "X screen to use"
+#~ msgstr "Pantalla X a utilitzar"
+
+#~ msgid "SCREEN"
+#~ msgstr "PANTALLA"
+
+#~ msgid "Make X calls synchronous"
+#~ msgstr "Fes les crides X síncrones"
+
+#~ msgid "Don't use X shared memory extension"
+#~ msgstr "No utilitzes l'extensió de memòria compartida X"
+
+#~ msgid "Program name as used by the window manager"
+#~ msgstr "Nom del programa utilitzat pel gestor de finestres"
+
+#~ msgid "NAME"
+#~ msgstr "NOM"
+
+#~ msgid "Program class as used by the window manager"
+#~ msgstr "Classe de programa utilitzat pel gestor de finestres"
+
+#~ msgid "CLASS"
+#~ msgstr "CLASSE"
+
+#~ msgid "Gtk+ debugging flags to set"
+#~ msgstr "Senyaladors de depuració de Gtk+ a definir"
+
+#~ msgid "Gtk+ debugging flags to unset"
+#~ msgstr "Senyaladors de depuració de Gtk+ dels quals desfer-ne la definició"
+
+#~ msgid "Make all warnings fatal"
+#~ msgstr "Fes que totes les advertències siguen fatals"
+
+#~ msgid "Load an additional Gtk module"
+#~ msgstr "Carrega un mòdul Gtk addicional"
+
+#~ msgid "MODULE"
+#~ msgstr "MÒDUL"
+
+#~ msgid "GTK+"
+#~ msgstr "GTK+"
+
+#~ msgid "Bonobo GUI support"
+#~ msgstr "Funcionalitat d'interfície gràfica del Bonobo"
+
+#~ msgid "B_oth"
+#~ msgstr "A_mbdues"
+
+#~ msgid "T_ext"
+#~ msgstr "T_ext"
+
+#~ msgid "Hide t_ips"
+#~ msgstr "Amaga els c_onsells"
+
+#~ msgid "Show t_ips"
+#~ msgstr "Mostra els c_onsells"
+
+#~ msgid "_Hide toolbar"
+#~ msgstr "_Amaga la barra d'eines"
+
+#~ msgid "Customi_ze"
+#~ msgstr "Personalit_za"
+
+#~ msgid "Customize the toolbar"
+#~ msgstr "Personalitza la barra d'eines"
+
+#~ msgid "is floating"
+#~ msgstr "és flotant"
+
+#~ msgid "whether the toolbar is floating"
+#~ msgstr "si la barra d'eines és flotant"
+
+#~ msgid "Style of bevel around the toolbar"
+#~ msgstr "Estil del bisell que envolta la barra d'eines"
+
+#~ msgid "Could not display help for this application"
+#~ msgstr "No s'ha pogut mostrar l'ajuda per a esta aplicació"
+
+#~ msgid "_Contents"
+#~ msgstr "_Continguts"
+
+#~ msgid "View help for this application"
+#~ msgstr "Visualitza l'ajuda per a esta aplicació"
+
+#~ msgid "Name of the window - used for configuration serialization."
+#~ msgstr ""
+#~ "Nom de la finestra - utilitzat per a la serialització de la configuració."
+
+#~ msgid "Zoom level"
+#~ msgstr "Nivell d'ampliació"
+
+#~ msgid "The degree of enlargment"
+#~ msgstr "El grau d'ampliació"
+
+#~ msgid "Minimum Zoom level"
+#~ msgstr "Nivell d'ampliació mínim"
+
+#~ msgid "The minimum degree of enlargment"
+#~ msgstr "El nivell d'ampliació mínim"
+
+#~ msgid "Maximum Zoom level"
+#~ msgstr "Nivell d'ampliació màxim"
+
+#~ msgid "The maximum degree of enlargment"
+#~ msgstr "El nivell d'ampliació màxim"
+
+#~ msgid "Has a minimum Zoom level"
+#~ msgstr "Té un nivell d'ampliació mínim"
+
+#~ msgid "Whether we have a valid minimum zoom level"
+#~ msgstr "Si tenim un nivell d'ampliació mínim vàlid"
+
+#~ msgid "Has a maximum Zoom level"
+#~ msgstr "Té un nivell d'ampliació màxim"
+
+#~ msgid "Whether we have a valid maximum zoom level"
+#~ msgstr "Si tenim un nivell d'ampliació màxim vàlid"
+
+#~ msgid "Is continuous"
+#~ msgstr "És continu"
+
+#~ msgid "Whether we zoom continuously (as opposed to jumps)"
+#~ msgstr "Si ampliem contínuament (en comparació als salts)"
+
+#~ msgid "About this application"
+#~ msgstr "Quant a esta aplicació"
+
+#~ msgid "Select"
+#~ msgstr "Selecciona"
+
+#~ msgid "_About..."
+#~ msgstr "_Quant a..."
+
+#~ msgid "_Edit"
+#~ msgstr "_Edita"
+
+#~ msgid "_File"
+#~ msgstr "_Fitxer"
+
+#~ msgid "_Select"
+#~ msgstr "_Selecciona"
+
+#~ msgid "This does nothing; it is only a demonstration."
+#~ msgstr "Això no fa res; només és una demostració."
+
+#~ msgid "BonoboUI-Hello."
+#~ msgstr "Hola, BonoboUI."
+
+#~ msgid "Gnome Hello"
+#~ msgstr "Hola, GNOME"
+
+#~ msgid "Hello, World!"
+#~ msgstr "Hola, món!"
+
+#~ msgid "Cannot init libbonoboui code"
+#~ msgstr "No es pot inicialitzar el codi de la libbonoboui"
+
+#~ msgid "Bonobo Component Browser"
+#~ msgstr "Navegador de components Bonobo"
+
+#~ msgid "Shows available Bonobo components"
+#~ msgstr "Mostra els components Bonobo disponibles"
+
+#~ msgid "About this program..."
+#~ msgstr "Quant a esta aplicació..."
+
+#~ msgid "Close the current window"
+#~ msgstr "Tanca la finestra actual"
+
+#~ msgid "Open a new window"
+#~ msgstr "Obri una finestra nova"
+
+#~ msgid "_Help"
+#~ msgstr "A_juda"
+
+#~ msgid "General"
+#~ msgstr "General"
+
+#~ msgid "IID"
+#~ msgstr "IID"
+
+#~ msgid "Location"
+#~ msgstr "Ubicació"
+
+#~ msgid "Details"
+#~ msgstr "Detalls"
+
+#~ msgid "Detailed Information"
+#~ msgstr "Informació detallada"
+
+#~ msgid "Active"
+#~ msgstr "Actiu"
+
+#~ msgid "Type"
+#~ msgstr "Tipus"
+
+#~ msgid "Component Details"
+#~ msgstr "Detalls del component"
+
+#~ msgid "Bonobo Browser"
+#~ msgstr "Navegador del Bonobo"
+
+#~ msgid "Copyright 2001, The GNOME Foundation"
+#~ msgstr "Copyright © 2001 La Fundació GNOME"
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Jordi Mallach <jordi@sindominio.net>\n"
+#~ "Gil Forcada <gilforcada@guifi.net>"
+
+#~ msgid "Component Browser"
+#~ msgstr "Navegador de components"
+
+#~ msgid "All"
+#~ msgstr "Tots"

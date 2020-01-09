@@ -1,0 +1,292 @@
+<refentry id="libbonobo-bonobo-persist-stream">
+<refmeta>
+<refentrytitle role="top_of_page" id="libbonobo-bonobo-persist-stream.top_of_page">BonoboPersistStream</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBBONOBO Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>BonoboPersistStream</refname>
+<refpurpose>Interface for anything that can save / load itself from a Bonobo stream.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libbonobo-bonobo-persist-stream.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+<anchor id="BonoboPersistStream"/>
+<synopsis>
+                    <link linkend="BonoboPersistStream-struct">BonoboPersistStream</link>;
+                    <link linkend="BonoboPersistStreamClass">BonoboPersistStreamClass</link>;
+<link linkend="void">void</link>                (<link linkend="BonoboPersistStreamIOFn">*BonoboPersistStreamIOFn</link>)          (<link linkend="BonoboPersistStream">BonoboPersistStream</link> *ps,
+                                                         const <link linkend="Bonobo-Stream">Bonobo_Stream</link> stream,
+                                                         <link linkend="Bonobo-Persist-ContentType">Bonobo_Persist_ContentType</link> type,
+                                                         <link linkend="void">void</link> *closure,
+                                                         <link linkend="CORBA-Environment">CORBA_Environment</link> *ev);
+<link linkend="Bonobo-Persist-ContentTypeList">Bonobo_Persist_ContentTypeList</link> * (<link linkend="BonoboPersistStreamTypesFn">*BonoboPersistStreamTypesFn</link>)
+                                                        (<link linkend="BonoboPersistStream">BonoboPersistStream</link> *ps,
+                                                         <link linkend="void">void</link> *closure,
+                                                         <link linkend="CORBA-Environment">CORBA_Environment</link> *ev);
+<link linkend="BonoboPersistStream">BonoboPersistStream</link> * <link linkend="bonobo-persist-stream-new">bonobo_persist_stream_new</link>         (<link linkend="BonoboPersistStreamIOFn">BonoboPersistStreamIOFn</link> load_fn,
+                                                         <link linkend="BonoboPersistStreamIOFn">BonoboPersistStreamIOFn</link> save_fn,
+                                                         <link linkend="BonoboPersistStreamTypesFn">BonoboPersistStreamTypesFn</link> types_fn,
+                                                         const <link linkend="gchar">gchar</link> *iid,
+                                                         <link linkend="void">void</link> *closure);
+<link linkend="BonoboPersistStream">BonoboPersistStream</link> * <link linkend="bonobo-persist-stream-construct">bonobo_persist_stream_construct</link>   (<link linkend="BonoboPersistStream">BonoboPersistStream</link> *ps,
+                                                         <link linkend="BonoboPersistStreamIOFn">BonoboPersistStreamIOFn</link> load_fn,
+                                                         <link linkend="BonoboPersistStreamIOFn">BonoboPersistStreamIOFn</link> save_fn,
+                                                         <link linkend="BonoboPersistStreamTypesFn">BonoboPersistStreamTypesFn</link> types_fn,
+                                                         const <link linkend="gchar">gchar</link> *iid,
+                                                         <link linkend="void">void</link> *closure);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="libbonobo-bonobo-persist-stream.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="BonoboObject">BonoboObject</link>
+         +----<link linkend="BonoboPersist">BonoboPersist</link>
+               +----BonoboPersistStream
+</synopsis>
+</refsect1>
+
+
+
+
+
+
+
+
+<refsect1 id="libbonobo-bonobo-persist-stream.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+The PersistStream interface is the interface to use for all new
+components that are able to load and save themselves to a stream.
+It should be associated with any <link linkend="BonoboEmbeddable"><type>BonoboEmbeddable</type></link> for use by the
+container in creating a compound document.
+</para>
+<para>
+This interface works by connecting callbacks to the methods, in
+a somewhat deprecated fashion, it is probably better nowadays to
+simply sub-class the BonoboXObject and override the epv methods.
+Either way, after all the caveats here is an example use:
+</para>
+<para>
+  <example>
+    <title>Implementing the PersistStream callbacks</title>
+    <programlisting>
+static void
+load_from_stream (BonoboPersistStream        *ps,
+                  const Bonobo_Stream         stream,
+                  Bonobo_Persist_ContentType  type,
+                  void                       *closure,
+                  CORBA_Environment          *ev)
+{
+	EogImageData *image_data = closure;
+	g_warning ("Load content from stream of type '%s'", type);
+}
+static gint
+save_to_stream (BonoboPersistStream        *ps,
+                const Bonobo_Stream         stream,
+                Bonobo_Persist_ContentType  type,
+                void                       *closure,
+                CORBA_Environment          *ev)
+{
+	EogImageData *image_data = closure;
+	g_warning ("Save content to stream with type '%s'", type);
+}
+static Bonobo_Persist_ContentTypeList *
+get_supported_types (BonoboPersistStream *ps,
+                     void                *closure,
+                     CORBA_Environment   *ev)
+{
+	return bonobo_persist_generate_content_types (
+		2, "text/plain", "text/html");
+}
+    </programlisting>
+  </example>
+Having implemented the callbacks we then have to register them
+and aggregate the interface to our object:
+  <example>
+     <title>Aggregating a new PersistStream</title>
+    <programlisting>
+EogImageData *
+eog_image_data_construct (EogImageData *image_data)
+{
+	BonoboObject        *retval;
+	BonoboPersistStream *ps;
+	ps = bonobo_persist_stream_new (
+		load_from_stream, save_to_stream,
+		get_supported_types, NULL,
+		image_data);
+	if (ps == NULL) {
+		bonobo_object_unref (BONOBO_OBJECT (image_data));
+		return NULL;
+	}
+	bonobo_object_add_interface (BONOBO_OBJECT (image_data),
+				     BONOBO_OBJECT (ps));
+	return image_data;
+}
+    </programlisting>
+  </example>
+</para>
+</refsect1>
+
+<refsect1 id="libbonobo-bonobo-persist-stream.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="BonoboPersistStream-struct" role="struct">
+<title>BonoboPersistStream</title>
+<indexterm zone="BonoboPersistStream-struct" role="deprecated"><primary sortas="BonoboPersistStream">BonoboPersistStream</primary></indexterm><programlisting>typedef struct _BonoboPersistStream BonoboPersistStream;</programlisting>
+<warning><para><literal>BonoboPersistStream</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+</para></refsect2>
+<refsect2 id="BonoboPersistStreamClass" role="struct" condition="deprecated:">
+<title>BonoboPersistStreamClass</title>
+<indexterm zone="BonoboPersistStreamClass" role="deprecated"><primary sortas="BonoboPersistStreamClass">BonoboPersistStreamClass</primary></indexterm><programlisting>typedef struct {
+	BonoboPersistClass parent_class;
+
+	POA_Bonobo_PersistStream__epv epv;
+
+	/* methods */
+	void       (*load)         (BonoboPersistStream        *ps,
+				    Bonobo_Stream              stream,
+				    Bonobo_Persist_ContentType type,
+				    CORBA_Environment          *ev);
+	void       (*save)         (BonoboPersistStream        *ps,
+				    Bonobo_Stream              stream,
+				    Bonobo_Persist_ContentType type,
+				    CORBA_Environment          *ev);
+
+	Bonobo_Persist_ContentTypeList * (*get_content_types) (BonoboPersistStream *ps,
+							       CORBA_Environment   *ev);
+} BonoboPersistStreamClass;
+</programlisting>
+<warning><para><literal>BonoboPersistStreamClass</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+</para></refsect2>
+<refsect2 id="BonoboPersistStreamIOFn" role="function" condition="deprecated:">
+<title>BonoboPersistStreamIOFn ()</title>
+<indexterm zone="BonoboPersistStreamIOFn" role="deprecated"><primary sortas="BonoboPersistStreamIOFn">BonoboPersistStreamIOFn</primary></indexterm><programlisting><link linkend="void">void</link>                (*BonoboPersistStreamIOFn)          (<link linkend="BonoboPersistStream">BonoboPersistStream</link> *ps,
+                                                         const <link linkend="Bonobo-Stream">Bonobo_Stream</link> stream,
+                                                         <link linkend="Bonobo-Persist-ContentType">Bonobo_Persist_ContentType</link> type,
+                                                         <link linkend="void">void</link> *closure,
+                                                         <link linkend="CORBA-Environment">CORBA_Environment</link> *ev);</programlisting>
+<warning><para><literal>BonoboPersistStreamIOFn</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>ps</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>type</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>closure</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>ev</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="BonoboPersistStreamTypesFn" role="function" condition="deprecated:">
+<title>BonoboPersistStreamTypesFn ()</title>
+<indexterm zone="BonoboPersistStreamTypesFn" role="deprecated"><primary sortas="BonoboPersistStreamTypesFn">BonoboPersistStreamTypesFn</primary></indexterm><programlisting><link linkend="Bonobo-Persist-ContentTypeList">Bonobo_Persist_ContentTypeList</link> * (*BonoboPersistStreamTypesFn)
+                                                        (<link linkend="BonoboPersistStream">BonoboPersistStream</link> *ps,
+                                                         <link linkend="void">void</link> *closure,
+                                                         <link linkend="CORBA-Environment">CORBA_Environment</link> *ev);</programlisting>
+<warning><para><literal>BonoboPersistStreamTypesFn</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>ps</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>closure</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>ev</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-persist-stream-new" role="function" condition="deprecated:">
+<title>bonobo_persist_stream_new ()</title>
+<indexterm zone="bonobo-persist-stream-new" role="deprecated"><primary sortas="bonobo_persist_stream_new">bonobo_persist_stream_new</primary></indexterm><programlisting><link linkend="BonoboPersistStream">BonoboPersistStream</link> * bonobo_persist_stream_new         (<link linkend="BonoboPersistStreamIOFn">BonoboPersistStreamIOFn</link> load_fn,
+                                                         <link linkend="BonoboPersistStreamIOFn">BonoboPersistStreamIOFn</link> save_fn,
+                                                         <link linkend="BonoboPersistStreamTypesFn">BonoboPersistStreamTypesFn</link> types_fn,
+                                                         const <link linkend="gchar">gchar</link> *iid,
+                                                         <link linkend="void">void</link> *closure);</programlisting>
+<warning><para><literal>bonobo_persist_stream_new</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+Creates a new BonoboPersistStream object. The various operations
+for the object are performed by the provided callback functions,
+which are passed <parameter>closure</parameter> when they are invoked. If any callback is
+<link linkend="NULL--CAPS"><literal>NULL</literal></link>, the corresponding operation is performed by the class load
+and save routines.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>load_fn</parameter>&#160;:</term>
+<listitem><simpara> Loading routine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>save_fn</parameter>&#160;:</term>
+<listitem><simpara> Saving routine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>types_fn</parameter>&#160;:</term>
+<listitem><simpara> get_content_types routine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>iid</parameter>&#160;:</term>
+<listitem><simpara> OAF IID of the object this interface is aggregated to
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>closure</parameter>&#160;:</term>
+<listitem><simpara> Data passed to IO routines.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the newly-created BonoboPersistStream object.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="bonobo-persist-stream-construct" role="function" condition="deprecated:">
+<title>bonobo_persist_stream_construct ()</title>
+<indexterm zone="bonobo-persist-stream-construct" role="deprecated"><primary sortas="bonobo_persist_stream_construct">bonobo_persist_stream_construct</primary></indexterm><programlisting><link linkend="BonoboPersistStream">BonoboPersistStream</link> * bonobo_persist_stream_construct   (<link linkend="BonoboPersistStream">BonoboPersistStream</link> *ps,
+                                                         <link linkend="BonoboPersistStreamIOFn">BonoboPersistStreamIOFn</link> load_fn,
+                                                         <link linkend="BonoboPersistStreamIOFn">BonoboPersistStreamIOFn</link> save_fn,
+                                                         <link linkend="BonoboPersistStreamTypesFn">BonoboPersistStreamTypesFn</link> types_fn,
+                                                         const <link linkend="gchar">gchar</link> *iid,
+                                                         <link linkend="void">void</link> *closure);</programlisting>
+<warning><para><literal>bonobo_persist_stream_construct</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+Initializes the BonoboPersistStream object.  The load and save
+operations for the object are performed by the provided <parameter>load_fn</parameter>
+and <parameter>save_fn</parameter> callback functions, which are passed <parameter>closure</parameter> when
+they are invoked.  If either <parameter>load_fn</parameter> or <parameter>save_fn</parameter> is <link linkend="NULL--CAPS"><literal>NULL</literal></link>, the
+corresponding operation is performed by the class load and save
+routines.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>ps</parameter>&#160;:</term>
+<listitem><simpara> A BonoboPersistStream object
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>load_fn</parameter>&#160;:</term>
+<listitem><simpara> Loading routine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>save_fn</parameter>&#160;:</term>
+<listitem><simpara> Saving routine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>types_fn</parameter>&#160;:</term>
+<listitem><simpara> returns the supported types
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>iid</parameter>&#160;:</term>
+<listitem><simpara> OAF IID of the object this interface is aggregated to
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>closure</parameter>&#160;:</term>
+<listitem><simpara> Data passed to IO routines.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The initialized BonoboPersistStream object.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

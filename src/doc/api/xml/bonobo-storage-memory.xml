@@ -1,0 +1,51 @@
+<refentry id="libbonobo-bonobo-storage-memory">
+<refmeta>
+<refentrytitle role="top_of_page" id="libbonobo-bonobo-storage-memory.top_of_page">bonobo-storage-memory</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBBONOBO Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>bonobo-storage-memory</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libbonobo-bonobo-storage-memory.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="BonoboObject">BonoboObject</link> *      <link linkend="bonobo-storage-mem-create">bonobo_storage_mem_create</link>           (void);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libbonobo-bonobo-storage-memory.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="libbonobo-bonobo-storage-memory.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="bonobo-storage-mem-create" role="function">
+<title>bonobo_storage_mem_create ()</title>
+<indexterm zone="bonobo-storage-mem-create"><primary sortas="bonobo_storage_mem_create">bonobo_storage_mem_create</primary></indexterm><programlisting><link linkend="BonoboObject">BonoboObject</link> *      bonobo_storage_mem_create           (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,707 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>bonobo-application</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Libbonobo Reference Manual">
+<link rel="up" href="general.html" title="General">
+<link rel="prev" href="libbonobo-bonobo-exception.html" title="bonobo-exception">
+<link rel="next" href="libbonobo-bonobo-app-client.html" title="bonobo-app-client">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="general.html" title="General">
+<link rel="chapter" href="factories.html" title="Objects, Factories, Reference Counting">
+<link rel="chapter" href="property-bags.html" title="Property Bags, Events, Listeners">
+<link rel="chapter" href="monikers.html" title="Monikers">
+<link rel="chapter" href="streams.html" title="Storages and Streams">
+<link rel="chapter" href="persist.html" title="Persistency">
+<link rel="chapter" href="misc.html" title="Miscellaneous">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libbonobo-bonobo-exception.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="general.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Libbonobo Reference Manual</th>
+<td><a accesskey="n" href="libbonobo-bonobo-app-client.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libbonobo-bonobo-application.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#libbonobo-bonobo-application.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="bonobo-application">
+<a name="libbonobo-bonobo-application"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libbonobo-bonobo-application.top_of_page"></a>bonobo-application</span></h2>
+<p>bonobo-application — a framework for unique application instance and automation</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="libbonobo-bonobo-application.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+void                (<a class="link" href="libbonobo-bonobo-application.html#BonoboAppHookFunc" title="BonoboAppHookFunc ()">*BonoboAppHookFunc</a>)                (BonoboApplication *app,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+BonoboApplication*  <a class="link" href="libbonobo-bonobo-application.html#bonobo-application-new" title="bonobo_application_new ()">bonobo_application_new</a>              (const char *name);
+void                <a class="link" href="libbonobo-bonobo-application.html#bonobo-application-register-message" title="bonobo_application_register_message ()">bonobo_application_register_message</a> (BonoboApplication *app,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *name,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *description,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *opt_closure,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+>GType</a> return_type,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+>GType</a> first_arg_type,
+                                                         ...);
+void                <a class="link" href="libbonobo-bonobo-application.html#bonobo-application-register-message-v" title="bonobo_application_register_message_v ()">bonobo_application_register_message_v</a>
+                                                        (BonoboApplication *app,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *name,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *description,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *opt_closure,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+>GType</a> return_type,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+>GType</a> const arg_types[]);
+void                <a class="link" href="libbonobo-bonobo-application.html#bonobo-application-register-message-va" title="bonobo_application_register_message_va ()">bonobo_application_register_message_va</a>
+                                                        (BonoboApplication *app,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *name,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *description,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *opt_closure,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+>GType</a> return_type,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+>GType</a> first_arg_type,
+                                                         va_list var_args);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                <a class="link" href="libbonobo-bonobo-application.html#bonobo-application-new-instance" title="bonobo_application_new_instance ()">bonobo_application_new_instance</a>     (BonoboApplication *app,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> argc,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *argv[]);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *             <a class="link" href="libbonobo-bonobo-application.html#bonobo-application-create-serverinfo" title="bonobo_application_create_serverinfo ()">bonobo_application_create_serverinfo</a>
+                                                        (BonoboApplication *app,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> const *envp[]);
+<a
+href="/usr/share/gtk-doc/html/bonobo-activation/bonobo-activation-Registration.html#Bonobo-RegistrationResult"
+>Bonobo_RegistrationResult</a>  <a class="link" href="libbonobo-bonobo-application.html#bonobo-application-register-unique" title="bonobo_application_register_unique ()">bonobo_application_register_unique</a>
+                                                        (BonoboApplication *app,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> const *serverinfo,
+                                                         BonoboAppClient **client);
+void                <a class="link" href="libbonobo-bonobo-application.html#bonobo-application-add-hook" title="bonobo_application_add_hook ()">bonobo_application_add_hook</a>         (<a class="link" href="libbonobo-bonobo-application.html#BonoboAppHookFunc" title="BonoboAppHookFunc ()">BonoboAppHookFunc</a> func,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+void                <a class="link" href="libbonobo-bonobo-application.html#bonobo-application-remove-hook" title="bonobo_application_remove_hook ()">bonobo_application_remove_hook</a>      (<a class="link" href="libbonobo-bonobo-application.html#BonoboAppHookFunc" title="BonoboAppHookFunc ()">BonoboAppHookFunc</a> func,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="libbonobo-bonobo-application.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="libbonobo-bonobo-application.details"></a><h2>Details</h2>
+<div class="refsect2" title="BonoboAppHookFunc ()">
+<a name="BonoboAppHookFunc"></a><h3>BonoboAppHookFunc ()</h3>
+<pre class="programlisting">void                (*BonoboAppHookFunc)                (BonoboApplication *app,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>app</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_application_new ()">
+<a name="bonobo-application-new"></a><h3>bonobo_application_new ()</h3>
+<pre class="programlisting">BonoboApplication*  bonobo_application_new              (const char *name);</pre>
+<p>
+Creates a new <span class="type">BonoboApplication</span> object.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td> application name
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <span class="type">BonoboApplication</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_application_register_message ()">
+<a name="bonobo-application-register-message"></a><h3>bonobo_application_register_message ()</h3>
+<pre class="programlisting">void                bonobo_application_register_message (BonoboApplication *app,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *name,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *description,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *opt_closure,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+>GType</a> return_type,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+>GType</a> first_arg_type,
+                                                         ...);</pre>
+<p>
+Registers a new message type that the application supports.</p>
+<p>
+When <em class="parameter"><code>opt_closure</code></em> is provided (and is non-<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>) it takes care of calling the
+callback function with the same arguments as registered for the message.  On
+the other hand if <em class="parameter"><code>opt_closure</code></em> is <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>, the function arguments are provided in
+a <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Value-arrays.html#GValueArray"
+><span class="type">GValueArray</span></a>.  This enables defining functions that accept variable number of
+arguments, but is perhaps a little more tedious to implement.
+</p>
+<p>
+</p>
+<div class="example">
+<a name="id2956918"></a><p class="title"><b>Example 5. Function with a closure</b></p>
+<div class="example-contents"><pre class="programlisting">
+static void
+message_open_url_cb (BonoboApplication *app, const char *url, gboolean new_win)
+{
+	...
+}
+...
+closure = g_cclosure_new (G_CALLBACK (message_open_url_cb), NULL, NULL);
+g_closure_set_marshal (closure, my_marshal_VOID__STRING_BOOLEAN);
+bonobo_application_register_message (app, "open-url", "Opens a new URL in the browser."
+                                     " Parameters: url(string), open-in-new-window(boolean)",
+                                     closure, G_TYPE_NONE, G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_NONE);
+</pre></div>
+</div>
+<p><br class="example-break">
+</p>
+<p>
+</p>
+<div class="example">
+<a name="id2956942"></a><p class="title"><b>Example 6. Function accepting variable number of arguments</b></p>
+<div class="example-contents"><pre class="programlisting">
+static GValue *
+message_open_url_cb (BonoboApplication *app, const char *message, GValueArray *args)
+{
+	const char *url;
+	gboolean    new_win = TRUE;
+	g_return_val_if_fail (strcmp (message, "open-url") == 0, NULL);
+	g_return_val_if_fail (args-&gt;n_values &gt; 0, NULL);
+	g_return_val_if_fail (G_VALUE_HOLDS_STRING (&amp;args-&gt;values[0]), NULL);
+	url = g_value_get_string (&amp;args-&gt;values[0]);
+	if (args-&gt;n_values &gt; 1)
+	{
+		g_return_val_if_fail (G_VALUE_HOLDS_BOOLEAN (&amp;args-&gt;values[1]), NULL);
+		new_win = g_value_get_boolean (&amp;args-&gt;values[1]);
+	}
+	...
+	return NULL;
+}
+...
+bonobo_application_register_message (app, "open-url", "Opens a new URL in the browser."
+                                     " Parameters: url(string) [, open-in-new-window(boolean)]",
+                                     NULL, G_TYPE_NONE, G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_NONE);
+g_signal_connect (app, "message::open-url", G_CALLBACK (message_open_url_cb), NULL);
+</pre></div>
+</div>
+<p><br class="example-break">
+</p>
+<p>
+</p>
+<div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>You are not required to register any messages for your application.
+However, only registered functions are included in the list returned by
+<code class="function">bonobo_app_client_msg_list()</code>
+</div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>app</code></em> :</span></p></td>
+<td> a <span class="type">BonoboApplication</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td> message string identifier
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>description</code></em> :</span></p></td>
+<td> a string containing a human readable description of the message
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>opt_closure</code></em> :</span></p></td>
+<td> a <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+><span class="type">GClosure</span></a> that will be called for this message, or
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>; Function takes ownership of this closure.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>return_type</code></em> :</span></p></td>
+<td> Message return <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+><span class="type">GType</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>first_arg_type</code></em> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+><span class="type">GType</span></a> of first argument of message, or <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-TYPE-NONE--CAPS"
+><code class="literal">G_TYPE_NONE</code></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-TYPE-NONE--CAPS"
+><code class="literal">G_TYPE_NONE</code></a> -terminated list of argument <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+><span class="type">GType</span></a>'s
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_application_register_message_v ()">
+<a name="bonobo-application-register-message-v"></a><h3>bonobo_application_register_message_v ()</h3>
+<pre class="programlisting">void                bonobo_application_register_message_v
+                                                        (BonoboApplication *app,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *name,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *description,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *opt_closure,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+>GType</a> return_type,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+>GType</a> const arg_types[]);</pre>
+<p>
+See <a class="link" href="libbonobo-bonobo-application.html#bonobo-application-register-message" title="bonobo_application_register_message ()"><code class="function">bonobo_application_register_message()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>app</code></em> :</span></p></td>
+<td> a <span class="type">BonoboApplication</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td> message string identifier
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>description</code></em> :</span></p></td>
+<td> a string containing a human readable description of the message
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>opt_closure</code></em> :</span></p></td>
+<td> a <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+><span class="type">GClosure</span></a> that will be called for this message, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>;
+Function takes ownership of this closure.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>return_type</code></em> :</span></p></td>
+<td> Message return <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+><span class="type">GType</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg_types</code></em> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-TYPE-NONE--CAPS"
+><code class="literal">G_TYPE_NONE</code></a> -terminated vector of argument <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+><span class="type">GType</span></a>'s
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_application_register_message_va ()">
+<a name="bonobo-application-register-message-va"></a><h3>bonobo_application_register_message_va ()</h3>
+<pre class="programlisting">void                bonobo_application_register_message_va
+                                                        (BonoboApplication *app,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *name,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *description,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+>GClosure</a> *opt_closure,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+>GType</a> return_type,
+                                                         <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+>GType</a> first_arg_type,
+                                                         va_list var_args);</pre>
+<p>
+See <a class="link" href="libbonobo-bonobo-application.html#bonobo-application-register-message" title="bonobo_application_register_message ()"><code class="function">bonobo_application_register_message()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>app</code></em> :</span></p></td>
+<td> a <span class="type">BonoboApplication</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td> message string identifier
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>description</code></em> :</span></p></td>
+<td> a string containing a human readable description of the message
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>opt_closure</code></em> :</span></p></td>
+<td> a <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GClosure"
+><span class="type">GClosure</span></a> that will be called for this message, or
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>; Function takes ownership of this closure.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>return_type</code></em> :</span></p></td>
+<td> Message return <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+><span class="type">GType</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>first_arg_type</code></em> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+><span class="type">GType</span></a> of first argument of message, or <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-TYPE-NONE--CAPS"
+><code class="literal">G_TYPE_NONE</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>var_args</code></em> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-TYPE-NONE--CAPS"
+><code class="literal">G_TYPE_NONE</code></a> -terminated valist of argument <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"
+><span class="type">GType</span></a>'s
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_application_new_instance ()">
+<a name="bonobo-application-new-instance"></a><h3>bonobo_application_new_instance ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>                bonobo_application_new_instance     (BonoboApplication *app,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> argc,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *argv[]);</pre>
+<p>
+Emit the "new-instance" signal of the <span class="type">BonoboApplication</span> with the
+given arguments.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>app</code></em> :</span></p></td>
+<td> a <span class="type">BonoboApplication</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>argc</code></em> :</span></p></td>
+<td> number of elements in <em class="parameter"><code>argv</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>argv</code></em> :</span></p></td>
+<td> array of strings (command-line arguments)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> signal return value
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_application_create_serverinfo ()">
+<a name="bonobo-application-create-serverinfo"></a><h3>bonobo_application_create_serverinfo ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *             bonobo_application_create_serverinfo
+                                                        (BonoboApplication *app,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> const *envp[]);</pre>
+<p>
+This utility function provides a simple way to contruct a valid
+serverinfo XML string.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>app</code></em> :</span></p></td>
+<td> a <span class="type">BonoboApplication</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>envp</code></em> :</span></p></td>
+<td> <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>-terminated string vector, containing the enviroment
+variables we wish to include in the server description.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a newly allocated string; caller must <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"
+><code class="function">g_free()</code></a> it.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_application_register_unique ()">
+<a name="bonobo-application-register-unique"></a><h3>bonobo_application_register_unique ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/bonobo-activation/bonobo-activation-Registration.html#Bonobo-RegistrationResult"
+>Bonobo_RegistrationResult</a>  bonobo_application_register_unique
+                                                        (BonoboApplication *app,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> const *serverinfo,
+                                                         BonoboAppClient **client);</pre>
+<p>
+Try to register the running application, or check for an existing
+application already registered and get a reference to it.
+Applications already running but on different environments (as
+defined by the bonobo:environenment server property) than this one
+are ignored and do not interfere.
+</p>
+<p>
+If the registration attempt indicates that another instance of this
+application is already running, then the output variable
+<em class="parameter"><code>client</code></em> will receive a newly created <span class="type">BonoboAppClient</span>
+associated with the running application.  Otherwise, *<em class="parameter"><code>client</code></em> is
+set to <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>app</code></em> :</span></p></td>
+<td> a <span class="type">BonoboApplication</span> instance
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>serverinfo</code></em> :</span></p></td>
+<td> the XML server
+description. <code class="function">bonobo_application_create_server_description()</code> may be
+used to easily create such description.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td> output parameter that will contain a client object, in
+case another instance has already running, or <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL--CAPS"
+><code class="literal">NULL</code></a> if we are the
+first to register.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the registration result.
+<code class="literal">Bonobo_ACTIVATION_REG_SUCCESS</code> means the application was registered,
+since no other running instance was detected.  If, however, a
+running application is detected,
+<code class="literal">Bonobo_ACTIVATION_REG_ALREADY_ACTIVE</code> is returned.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_application_add_hook ()">
+<a name="bonobo-application-add-hook"></a><h3>bonobo_application_add_hook ()</h3>
+<pre class="programlisting">void                bonobo_application_add_hook         (<a class="link" href="libbonobo-bonobo-application.html#BonoboAppHookFunc" title="BonoboAppHookFunc ()">BonoboAppHookFunc</a> func,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Add a hook function to be called whenever a new <span class="type">BonoboApplication</span>
+instance is created.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td> hook function
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> user data
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_application_remove_hook ()">
+<a name="bonobo-application-remove-hook"></a><h3>bonobo_application_remove_hook ()</h3>
+<pre class="programlisting">void                bonobo_application_remove_hook      (<a class="link" href="libbonobo-bonobo-application.html#BonoboAppHookFunc" title="BonoboAppHookFunc ()">BonoboAppHookFunc</a> func,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Removes a hook function previously set with <a class="link" href="libbonobo-bonobo-application.html#bonobo-application-add-hook" title="bonobo_application_add_hook ()"><code class="function">bonobo_application_add_hook()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td> hook function
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> user data
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

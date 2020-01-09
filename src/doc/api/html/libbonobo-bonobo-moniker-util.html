@@ -1,0 +1,889 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>bonobo-moniker-util</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Libbonobo Reference Manual">
+<link rel="up" href="monikers.html" title="Monikers">
+<link rel="prev" href="libbonobo-bonobo-moniker-simple.html" title="BonoboMonikerSimple">
+<link rel="next" href="libbonobo-bonobo-moniker-extender.html" title="BonoboMonikerExtender">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="general.html" title="General">
+<link rel="chapter" href="factories.html" title="Objects, Factories, Reference Counting">
+<link rel="chapter" href="property-bags.html" title="Property Bags, Events, Listeners">
+<link rel="chapter" href="monikers.html" title="Monikers">
+<link rel="chapter" href="streams.html" title="Storages and Streams">
+<link rel="chapter" href="persist.html" title="Persistency">
+<link rel="chapter" href="misc.html" title="Miscellaneous">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libbonobo-bonobo-moniker-simple.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="monikers.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Libbonobo Reference Manual</th>
+<td><a accesskey="n" href="libbonobo-bonobo-moniker-extender.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libbonobo-bonobo-moniker-util.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#libbonobo-bonobo-moniker-util.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="bonobo-moniker-util">
+<a name="libbonobo-bonobo-moniker-util"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libbonobo-bonobo-moniker-util.top_of_page"></a>bonobo-moniker-util</span></h2>
+<p>bonobo-moniker-util — Object activation and construction through monikers.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="libbonobo-bonobo-moniker-util.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+Bonobo_Unknown      <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-get-object" title="bonobo_get_object ()">bonobo_get_object</a>                   (const CORBA_char *name,
+                                                         const char *interface_name,
+                                                         CORBA_Environment *opt_ev);
+Bonobo_Moniker      <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-moniker-client-new-from-name" title="bonobo_moniker_client_new_from_name ()">bonobo_moniker_client_new_from_name</a> (const CORBA_char *name,
+                                                         CORBA_Environment *opt_ev);
+CORBA_char *        <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-moniker-client-get-name" title="bonobo_moniker_client_get_name ()">bonobo_moniker_client_get_name</a>      (Bonobo_Moniker moniker,
+                                                         CORBA_Environment *opt_ev);
+Bonobo_Unknown      <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-moniker-client-resolve-default" title="bonobo_moniker_client_resolve_default ()">bonobo_moniker_client_resolve_default</a>
+                                                        (Bonobo_Moniker moniker,
+                                                         const char *interface_name,
+                                                         CORBA_Environment *opt_ev);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-moniker-client-equal" title="bonobo_moniker_client_equal ()">bonobo_moniker_client_equal</a>         (Bonobo_Moniker moniker,
+                                                         const CORBA_char *name,
+                                                         CORBA_Environment *opt_ev);
+void                (<a class="link" href="libbonobo-bonobo-moniker-util.html#BonoboMonikerAsyncFn" title="BonoboMonikerAsyncFn ()">*BonoboMonikerAsyncFn</a>)             (Bonobo_Unknown object,
+                                                         CORBA_Environment *ev,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+void                <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-get-object-async" title="bonobo_get_object_async ()">bonobo_get_object_async</a>             (const CORBA_char *name,
+                                                         const char *interface_name,
+                                                         CORBA_Environment *ev,
+                                                         <a class="link" href="libbonobo-bonobo-moniker-util.html#BonoboMonikerAsyncFn" title="BonoboMonikerAsyncFn ()">BonoboMonikerAsyncFn</a> cb,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+void                <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-moniker-client-new-from-name-async" title="bonobo_moniker_client_new_from_name_async ()">bonobo_moniker_client_new_from_name_async</a>
+                                                        (const CORBA_char *name,
+                                                         CORBA_Environment *ev,
+                                                         <a class="link" href="libbonobo-bonobo-moniker-util.html#BonoboMonikerAsyncFn" title="BonoboMonikerAsyncFn ()">BonoboMonikerAsyncFn</a> cb,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+void                <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-moniker-resolve-async" title="bonobo_moniker_resolve_async ()">bonobo_moniker_resolve_async</a>        (Bonobo_Moniker moniker,
+                                                         Bonobo_ResolveOptions *options,
+                                                         const char *interface_name,
+                                                         CORBA_Environment *ev,
+                                                         <a class="link" href="libbonobo-bonobo-moniker-util.html#BonoboMonikerAsyncFn" title="BonoboMonikerAsyncFn ()">BonoboMonikerAsyncFn</a> cb,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+void                <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-moniker-resolve-async-default" title="bonobo_moniker_resolve_async_default ()">bonobo_moniker_resolve_async_default</a>
+                                                        (Bonobo_Moniker moniker,
+                                                         const char *interface_name,
+                                                         CORBA_Environment *ev,
+                                                         <a class="link" href="libbonobo-bonobo-moniker-util.html#BonoboMonikerAsyncFn" title="BonoboMonikerAsyncFn ()">BonoboMonikerAsyncFn</a> cb,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+CORBA_char *        <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-moniker-util-get-parent-name" title="bonobo_moniker_util_get_parent_name ()">bonobo_moniker_util_get_parent_name</a> (Bonobo_Moniker moniker,
+                                                         CORBA_Environment *opt_ev);
+Bonobo_Unknown      <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-moniker-util-qi-return" title="bonobo_moniker_util_qi_return ()">bonobo_moniker_util_qi_return</a>       (Bonobo_Unknown object,
+                                                         const CORBA_char *requested_interface,
+                                                         CORBA_Environment *ev);
+const char *        <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-moniker-util-parse-name" title="bonobo_moniker_util_parse_name ()">bonobo_moniker_util_parse_name</a>      (const char *name,
+                                                         int *plen);
+int                 <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-moniker-util-seek-std-separator" title="bonobo_moniker_util_seek_std_separator ()">bonobo_moniker_util_seek_std_separator</a>
+                                                        (const CORBA_char *str,
+                                                         int min_idx);
+char *              <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-moniker-util-escape" title="bonobo_moniker_util_escape ()">bonobo_moniker_util_escape</a>          (const char *string,
+                                                         int offset);
+char *              <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-moniker-util-unescape" title="bonobo_moniker_util_unescape ()">bonobo_moniker_util_unescape</a>        (const char *string,
+                                                         int num_chars);
+void                <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-url-register" title="bonobo_url_register ()">bonobo_url_register</a>                 (char *oafiid,
+                                                         char *url,
+                                                         char *mime_type,
+                                                         Bonobo_Unknown object,
+                                                         CORBA_Environment *ev);
+void                <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-url-unregister" title="bonobo_url_unregister ()">bonobo_url_unregister</a>               (char *oafiid,
+                                                         char *url,
+                                                         CORBA_Environment *ev);
+Bonobo_Unknown      <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-url-lookup" title="bonobo_url_lookup ()">bonobo_url_lookup</a>                   (char *oafiid,
+                                                         char *url,
+                                                         CORBA_Environment *ev);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="libbonobo-bonobo-moniker-util.description"></a><h2>Description</h2>
+<p>
+The moniker utility functions provide two sets of functions:
+  </p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>
+      Helper functions for constructing and resolving monikers,
+      and a simple get_object method that constructs and resolves
+      against an interface in a single pass. Also, asynchronous
+      versions of these methods are provided using the <span class="type">BonoboAsync</span>
+      code.
+      </p></li>
+<li class="listitem"><p>
+      Helper functions for the implementation of new custom
+      monikers are also provided here, along with a lot of the
+      grunt code neccessary for moniker implementation, particularly
+      constructing the chained list of sub-monikers that comprises
+      a complex moniker.
+      </p></li>
+</ul></div>
+<p>
+</p>
+<p>
+The most useful function to get a feel for what monikers can do
+is the <code class="function">bonobo_get_object</code> method. This is
+used to create a moniker and resolve it against a given interface
+like this:
+  </p>
+<div class="example">
+<a name="id3030455"></a><p class="title"><b>Example 17. GetObject example</b></p>
+<div class="example-contents"><pre class="programlisting">
+GtkWidget *
+moniker_resolve_demo (void)
+{
+	Bonobo_Control control;
+	CORBA_Environment ev;
+	CORBA_exception_init (&amp;ev);
+	control = bonobo_get_object ("file:/demo/a.jpeg",
+                                     "Bonobo/Control", NULL);
+	if (control == CORBA_OBJECT_NIL)
+		g_error ("Failed to get object file:/demo/a.jpeg");
+	return bonobo_widget_new_control (control);
+}
+     </pre></div>
+</div>
+<p><br class="example-break">
+  This also makes a control out of the widget.
+</p>
+<p>
+  It is worth noting that when resolving monikers a contracted
+version of the interface name may be used, ommitting the 'IDL:'
+prefix and / or the ':0' suffix.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="libbonobo-bonobo-moniker-util.details"></a><h2>Details</h2>
+<div class="refsect2" title="bonobo_get_object ()">
+<a name="bonobo-get-object"></a><h3>bonobo_get_object ()</h3>
+<pre class="programlisting">Bonobo_Unknown      bonobo_get_object                   (const CORBA_char *name,
+                                                         const char *interface_name,
+                                                         CORBA_Environment *opt_ev);</pre>
+<p>
+This encapsulates both the parse stage and resolve process of using
+a moniker, providing a simple VisualBasic like mechanism for using the
+object name space.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td> the name of a moniker
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>interface_name</code></em> :</span></p></td>
+<td> the name of the interface we want returned as the result 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>opt_ev</code></em> :</span></p></td>
+<td> an optional corba exception environment 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the requested interface or CORBA_OBJECT_NIL
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_moniker_client_new_from_name ()">
+<a name="bonobo-moniker-client-new-from-name"></a><h3>bonobo_moniker_client_new_from_name ()</h3>
+<pre class="programlisting">Bonobo_Moniker      bonobo_moniker_client_new_from_name (const CORBA_char *name,
+                                                         CORBA_Environment *opt_ev);</pre>
+<p>
+This routine tries to parse a Moniker in string form
+</p>
+<p>
+eg. file:/tmp/a.tar.gz<span class="type">""</span>#tar:
+</p>
+<p>
+into a CORBA_Object representation of this that can
+later be resolved against an interface.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td> the name of a moniker
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>opt_ev</code></em> :</span></p></td>
+<td> an optional corba exception environment 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new Moniker handle
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_moniker_client_get_name ()">
+<a name="bonobo-moniker-client-get-name"></a><h3>bonobo_moniker_client_get_name ()</h3>
+<pre class="programlisting">CORBA_char *        bonobo_moniker_client_get_name      (Bonobo_Moniker moniker,
+                                                         CORBA_Environment *opt_ev);</pre>
+<p>
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>moniker</code></em> :</span></p></td>
+<td> a moniker handle
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>opt_ev</code></em> :</span></p></td>
+<td> a corba exception environment 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the name of the moniker.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_moniker_client_resolve_default ()">
+<a name="bonobo-moniker-client-resolve-default"></a><h3>bonobo_moniker_client_resolve_default ()</h3>
+<pre class="programlisting">Bonobo_Unknown      bonobo_moniker_client_resolve_default
+                                                        (Bonobo_Moniker moniker,
+                                                         const char *interface_name,
+                                                         CORBA_Environment *opt_ev);</pre>
+<p>
+This resolves the moniker object against the given interface,
+with a default set of resolve options.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>moniker</code></em> :</span></p></td>
+<td> a moniker
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>interface_name</code></em> :</span></p></td>
+<td> the name of the interface we want returned as the result 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>opt_ev</code></em> :</span></p></td>
+<td> an optional corba exception environment 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the interfaces resolved to or CORBA_OBJECT_NIL
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_moniker_client_equal ()">
+<a name="bonobo-moniker-client-equal"></a><h3>bonobo_moniker_client_equal ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            bonobo_moniker_client_equal         (Bonobo_Moniker moniker,
+                                                         const CORBA_char *name,
+                                                         CORBA_Environment *opt_ev);</pre>
+<p>
+Compare a full <em class="parameter"><code>moniker</code></em> with the given <em class="parameter"><code>name</code></em></p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>moniker</code></em> :</span></p></td>
+<td> The moniker
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td> a moniker name eg. file:/demo/a.jpeg
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>opt_ev</code></em> :</span></p></td>
+<td> optional CORBA_Environment or NULL.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if they are the same
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="BonoboMonikerAsyncFn ()">
+<a name="BonoboMonikerAsyncFn"></a><h3>BonoboMonikerAsyncFn ()</h3>
+<pre class="programlisting">void                (*BonoboMonikerAsyncFn)             (Bonobo_Unknown object,
+                                                         CORBA_Environment *ev,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+Callback function, invoked when <a class="link" href="libbonobo-bonobo-moniker-util.html#bonobo-get-object-async" title="bonobo_get_object_async ()"><code class="function">bonobo_get_object_async()</code></a> completes its work.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>the newly-activated object, or <code class="literal">CORBA_OBJECT_NIL</code> if an exception occurred
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ev</code></em> :</span></p></td>
+<td>CORBA environment that may contain an exception if an activation error occurred
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_get_object_async ()">
+<a name="bonobo-get-object-async"></a><h3>bonobo_get_object_async ()</h3>
+<pre class="programlisting">void                bonobo_get_object_async             (const CORBA_char *name,
+                                                         const char *interface_name,
+                                                         CORBA_Environment *ev,
+                                                         <a class="link" href="libbonobo-bonobo-moniker-util.html#BonoboMonikerAsyncFn" title="BonoboMonikerAsyncFn ()">BonoboMonikerAsyncFn</a> cb,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+An async version of bonobo_get_object</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td> 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>interface_name</code></em> :</span></p></td>
+<td> the name of the interface we want returned as the result 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ev</code></em> :</span></p></td>
+<td> a corba exception environment 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cb</code></em> :</span></p></td>
+<td> the async callback that gets the response 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td> user context data to pass to that callback 
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_moniker_client_new_from_name_async ()">
+<a name="bonobo-moniker-client-new-from-name-async"></a><h3>bonobo_moniker_client_new_from_name_async ()</h3>
+<pre class="programlisting">void                bonobo_moniker_client_new_from_name_async
+                                                        (const CORBA_char *name,
+                                                         CORBA_Environment *ev,
+                                                         <a class="link" href="libbonobo-bonobo-moniker-util.html#BonoboMonikerAsyncFn" title="BonoboMonikerAsyncFn ()">BonoboMonikerAsyncFn</a> cb,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+An asynchronous version of new_from_name</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td> the name
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ev</code></em> :</span></p></td>
+<td> a corba exception environment 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cb</code></em> :</span></p></td>
+<td> the async callback that gets the response
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td> user context data to pass to that callback
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_moniker_resolve_async ()">
+<a name="bonobo-moniker-resolve-async"></a><h3>bonobo_moniker_resolve_async ()</h3>
+<pre class="programlisting">void                bonobo_moniker_resolve_async        (Bonobo_Moniker moniker,
+                                                         Bonobo_ResolveOptions *options,
+                                                         const char *interface_name,
+                                                         CORBA_Environment *ev,
+                                                         <a class="link" href="libbonobo-bonobo-moniker-util.html#BonoboMonikerAsyncFn" title="BonoboMonikerAsyncFn ()">BonoboMonikerAsyncFn</a> cb,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+An async version of bonobo_moniker_client_resolve</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>moniker</code></em> :</span></p></td>
+<td> the moniker to resolve
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>options</code></em> :</span></p></td>
+<td> resolve options
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>interface_name</code></em> :</span></p></td>
+<td> the name of the interface we want returned as the result 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ev</code></em> :</span></p></td>
+<td> a corba exception environment 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cb</code></em> :</span></p></td>
+<td> the async callback that gets the response 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td> user context data to pass to that callback 
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_moniker_resolve_async_default ()">
+<a name="bonobo-moniker-resolve-async-default"></a><h3>bonobo_moniker_resolve_async_default ()</h3>
+<pre class="programlisting">void                bonobo_moniker_resolve_async_default
+                                                        (Bonobo_Moniker moniker,
+                                                         const char *interface_name,
+                                                         CORBA_Environment *ev,
+                                                         <a class="link" href="libbonobo-bonobo-moniker-util.html#BonoboMonikerAsyncFn" title="BonoboMonikerAsyncFn ()">BonoboMonikerAsyncFn</a> cb,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+An async version of bonobo_moniker_client_resolve_default</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>moniker</code></em> :</span></p></td>
+<td> 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>interface_name</code></em> :</span></p></td>
+<td> the name of the interface we want returned as the result 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ev</code></em> :</span></p></td>
+<td> a corba exception environment 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cb</code></em> :</span></p></td>
+<td> the async callback that gets the response 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td> user context data to pass to that callback 
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_moniker_util_get_parent_name ()">
+<a name="bonobo-moniker-util-get-parent-name"></a><h3>bonobo_moniker_util_get_parent_name ()</h3>
+<pre class="programlisting">CORBA_char *        bonobo_moniker_util_get_parent_name (Bonobo_Moniker moniker,
+                                                         CORBA_Environment *opt_ev);</pre>
+<p>
+This gets the name of the parent moniker ( recursively
+all of the parents of this moniker ).</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>moniker</code></em> :</span></p></td>
+<td> the moniker
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>opt_ev</code></em> :</span></p></td>
+<td> an optional corba exception environment
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the name; use CORBA_free to release it.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_moniker_util_qi_return ()">
+<a name="bonobo-moniker-util-qi-return"></a><h3>bonobo_moniker_util_qi_return ()</h3>
+<pre class="programlisting">Bonobo_Unknown      bonobo_moniker_util_qi_return       (Bonobo_Unknown object,
+                                                         const CORBA_char *requested_interface,
+                                                         CORBA_Environment *ev);</pre>
+<p>
+A helper function to share code from the end of a resolve
+implementation; this ensures that the returned object is of
+the correct interface by doing a queryInterface on the object.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td> the unknown to query
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>requested_interface</code></em> :</span></p></td>
+<td> the desired interface
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ev</code></em> :</span></p></td>
+<td> a corba exception environment 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> an handle to the requested interface
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_moniker_util_parse_name ()">
+<a name="bonobo-moniker-util-parse-name"></a><h3>bonobo_moniker_util_parse_name ()</h3>
+<pre class="programlisting">const char *        bonobo_moniker_util_parse_name      (const char *name,
+                                                         int *plen);</pre>
+<p>
+This routine finds the rightmost moniker name. For example
+it will return "cache:" if you pass in "file:/tmp.txt<span class="type">""</span>". It will 
+also store the length of the parent string in <em class="parameter"><code>plen</code></em> (13 for the above 
+example)</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td> a moniker name
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plen</code></em> :</span></p></td>
+<td> an optional pointer to store the parent length
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the name of the rightmost moniker
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_moniker_util_seek_std_separator ()">
+<a name="bonobo-moniker-util-seek-std-separator"></a><h3>bonobo_moniker_util_seek_std_separator ()</h3>
+<pre class="programlisting">int                 bonobo_moniker_util_seek_std_separator
+                                                        (const CORBA_char *str,
+                                                         int min_idx);</pre>
+<p>
+This looks for a moniker separator in a moniker's name string.
+</p>
+<p>
+ See also bonobo_moniker_util_escape</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td> the string to scan
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>min_idx</code></em> :</span></p></td>
+<td> the minimum offset at which a separator can be found.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the position of the separator, or a
+pointer to the end of the string.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_moniker_util_escape ()">
+<a name="bonobo-moniker-util-escape"></a><h3>bonobo_moniker_util_escape ()</h3>
+<pre class="programlisting">char *              bonobo_moniker_util_escape          (const char *string,
+                                                         int offset);</pre>
+<p>
+Escapes possible separator characters inside a moniker
+these include '!' and '#', the '\' escaping character is
+used.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td> an unescaped string
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>offset</code></em> :</span></p></td>
+<td> an offset of characters to ignore
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> an escaped sub-string.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_moniker_util_unescape ()">
+<a name="bonobo-moniker-util-unescape"></a><h3>bonobo_moniker_util_unescape ()</h3>
+<pre class="programlisting">char *              bonobo_moniker_util_unescape        (const char *string,
+                                                         int num_chars);</pre>
+<p>
+This routine strips <em class="parameter"><code>num_chars</code></em>: from the start of
+<em class="parameter"><code>string</code></em>, discards the rest, and proceeds to un-escape
+characters escaped with '\'.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td> a string
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>num_chars</code></em> :</span></p></td>
+<td> the number of chars to process.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the unescaped sub string.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_url_register ()">
+<a name="bonobo-url-register"></a><h3>bonobo_url_register ()</h3>
+<pre class="programlisting">void                bonobo_url_register                 (char *oafiid,
+                                                         char *url,
+                                                         char *mime_type,
+                                                         Bonobo_Unknown object,
+                                                         CORBA_Environment *ev);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>oafiid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>url</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mime_type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ev</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_url_unregister ()">
+<a name="bonobo-url-unregister"></a><h3>bonobo_url_unregister ()</h3>
+<pre class="programlisting">void                bonobo_url_unregister               (char *oafiid,
+                                                         char *url,
+                                                         CORBA_Environment *ev);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>oafiid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>url</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ev</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="bonobo_url_lookup ()">
+<a name="bonobo-url-lookup"></a><h3>bonobo_url_lookup ()</h3>
+<pre class="programlisting">Bonobo_Unknown      bonobo_url_lookup                   (char *oafiid,
+                                                         char *url,
+                                                         CORBA_Environment *ev);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>oafiid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>url</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ev</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>
