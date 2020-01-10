@@ -1,0 +1,500 @@
+# Uyghur translation for libbonobo.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Gheyret Kenji<gheyret@yahoo.com>,2010.
+# Sahran <sahran.ug@gmail.com>, 2010.
+# Zeper <zeper@msn.com>, 2010.
+# dolkun731 <dolkun731@gmail.com>
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: libbonobo\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=bonobo&component=libbonobo\n"
+"POT-Creation-Date: 2011-01-02 20:02+0000\n"
+"PO-Revision-Date: 2010-12-08 13:34+0800\n"
+"Last-Translator: dolkun731 <dolkun731@gmail.com>\n"
+"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../activation-server/activation-context-corba.c:530
+msgid "Couldn't find which child the server was listed in"
+msgstr ""
+"بۇ مۇلازىمەت  قايسى بالا جەريان تەرىپىدىن تىزىملىتىلغانلىقىنى بىلگىلى بولمىدى"
+
+#: ../activation-server/activation-context-corba.c:822
+msgid "Not a valid Activation ID"
+msgstr "ئىناۋەتلىك ئاكتىپلاش ID سى ئەمەس"
+
+#: ../activation-server/activation-server-main.c:174
+msgid "Directory to read .server files from"
+msgstr ".server ھۆججىتىنى ئوقۇشتا ئىشلىتىدىغان مۇندەرىجە"
+
+#: ../activation-server/activation-server-main.c:174
+msgid "DIRECTORY"
+msgstr "DIRECTORY"
+
+#: ../activation-server/activation-server-main.c:177
+msgid "Serve as an ActivationContext (default is as an ObjectDirectory only)"
+msgstr "ActivationContext دەك بولىدۇ(كۆڭۈلدىكى قىممىتى ObjectDirectory )"
+
+#: ../activation-server/activation-server-main.c:181
+msgid "File descriptor to write IOR to"
+msgstr "IOR غا يېزىلىدىغان ھۆججەت چۈشەندۈرۈش بەلگىسى"
+
+#: ../activation-server/activation-server-main.c:181
+#: ../bonobo-activation/bonobo-activation-init.c:352
+#: ../bonobo-activation/bonobo-activation-init.c:397
+msgid "FD"
+msgstr "FD"
+
+#: ../activation-server/activation-server-main.c:184
+msgid ""
+"Register as the user's activation server without locking.  Warning: this "
+"option can have dangerous side effects on the stability of the user's "
+"running session, and should only be used for debugging purposes"
+msgstr ""
+"قۇلۇپلانمايدىغان ئىشلەتكۈچى ئاكتىپ مۇلازىمېتىر قىلىپ خەتلەندى. "
+"ئاگاھلاندۇرۇش: بۇ تاللانما ئىشلەتكۈچى ئىجرا قىلىۋاتقان ئەڭگىمەگە مۇقىملىق "
+"جەھەتتە خەتەر يەتكۈزۈشى مۇمكىن، سازلاش مەقسىتىدىلا ئىشلىتىلىدۇ."
+
+#: ../activation-server/activation-server-main.c:192
+msgid "Query expression to evaluate"
+msgstr "باھالىنىدىغان سۈرۈشتۈرۈش ئىپادىسى"
+
+#: ../activation-server/activation-server-main.c:192
+msgid "EXPRESSION"
+msgstr "EXPRESSION"
+
+#: ../activation-server/activation-server-main.c:541
+#: ../utils/bonobo-activation-sysconf.c:305
+#, c-format
+msgid "Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"'%s --help' ئىجرا قىلىنسا بۇيرۇق قۇرى تاللانمىسىنىڭ تولۇق تىزىملىكى "
+"كۆرۈنىدۇ.\n"
+
+#: ../activation-server/Bonobo_CosNaming_NamingContext.server.in.in.h:1
+msgid "CORBA CosNaming service."
+msgstr "CORBA CosNaming مۇلازىمىتى."
+
+#: ../activation-server/Bonobo_CosNaming_NamingContext.server.in.in.h:2
+msgid "Name service"
+msgstr "ئات مۇلازىمىتى"
+
+#: ../activation-server/Bonobo_CosNaming_NamingContext.server.in.in.h:3
+msgid "Notification service"
+msgstr "ئۇقتۇرۇش مۇلازىمىتى"
+
+#: ../activation-server/Bonobo_CosNaming_NamingContext.server.in.in.h:4
+msgid "Notification service for activation"
+msgstr "ئاكتىپلىنىدىغان ئۇقتۇرۇش مۇلازىمىتى"
+
+#: ../activation-server/object-directory-activate.c:235
+msgid "We don't handle activating shlib objects in a remote process yet"
+msgstr ""
+"بىز يىراق مەشغۇلاتتىكى shilib نەڭىنى ئاكتىپلايدىغان ئىشنى تېخى قىلالمايمىز"
+
+#: ../activation-server/object-directory-config-file.c:65
+#, c-format
+msgid ""
+"The Bonobo Activation configuration file was not read successfully. Please, "
+"check it is valid in: %s"
+msgstr ""
+"Bonobo ئاكتىپلاش سەپلىمە ھۆججىتىنى ئوقۇش مۇۋەپپەقىيەتلىك بولمىدى. ئۇنىڭ %s "
+"نىڭ ئىچىدە ئىناۋەتلىك ئىكەنلىكىنى تەكشۈرۈڭ"
+
+#: ../activation-server/object-directory-load.c:102
+msgid "a NULL iid is not valid"
+msgstr "بىر NULL iid ئىناۋەتسىز"
+
+#: ../activation-server/object-directory-load.c:106
+#, c-format
+msgid "iid %s has a NULL type"
+msgstr "iid %s دە NULL تىپ بار"
+
+#: ../activation-server/object-directory-load.c:110
+#, c-format
+msgid "iid %s has a NULL location"
+msgstr "iid %s دە بىر NULL ئورۇن بار"
+
+#: ../activation-server/object-directory-load.c:119
+#, c-format
+msgid "invalid character '%c' in iid '%s'"
+msgstr "iid «%2$s» دىكى  ھەرپ «%1$c» ئىناۋەتسىز"
+
+#: ../activation-server/object-directory-load.c:349
+#, c-format
+msgid "Property '%s' has no value"
+msgstr "خاسلىق «%s» قىممىتى يوق"
+
+#: ../activation-server/object-directory-load.c:583
+#, c-format
+msgid "Could not parse badly formed XML document %s"
+msgstr "ئۆلچەمسىز XML  ھۆججىتى %s نى بىر تەرەپ قىلغىلى بولمىدى"
+
+#: ../activation-server/object-directory-load.c:629
+#, c-format
+msgid "Trying dir %s"
+msgstr "مۇندەرىجە %s نى سىناۋاتىدۇ"
+
+#: ../bonobo-activation/bonobo-activation-fork-server.c:107
+msgid "Child process did not give an error message, unknown failure occurred"
+msgstr ""
+"بالا process ھېچقانداق خاتالىق ئۇچۇرى چىقارمىدى، نامەلۇم خاتالىق يۈز بەردى"
+
+#: ../bonobo-activation/bonobo-activation-fork-server.c:237
+#, c-format
+msgid "Failed to read from child process: %s\n"
+msgstr "بالا process تىن ئوقۇش مەغلۇپ بولدى: %s\n"
+
+#: ../bonobo-activation/bonobo-activation-fork-server.c:247
+#, c-format
+msgid "EOF from child process\n"
+msgstr "بالا process تىن EOF كەلدى\n"
+
+#: ../bonobo-activation/bonobo-activation-fork-server.c:438
+msgid "Couldn't spawn a new process"
+msgstr "يېڭى جەريان قۇرۇغىلى بولمىدى"
+
+#: ../bonobo-activation/bonobo-activation-init.c:352
+#: ../bonobo-activation/bonobo-activation-init.c:397
+msgid "File descriptor to print IOR on"
+msgstr "IOR غا بېسىلىدىغان ھۆججەت چۈشەندۈرۈش بەلگىسى"
+
+#: ../bonobo-activation/bonobo-activation-init.c:354
+#: ../bonobo-activation/bonobo-activation-init.c:399
+msgid "IID to activate"
+msgstr "ئاكتىپلايدىغان IID"
+
+#: ../bonobo-activation/bonobo-activation-init.c:356
+#: ../bonobo-activation/bonobo-activation-init.c:401
+msgid "Prevent registering of server with OAF"
+msgstr "مۇلازىمېتىرنى OAF بىلەن خەتلىتىشنى توس"
+
+#: ../bonobo-activation/bonobo-activation-init.c:409
+msgid "Bonobo Activation options:"
+msgstr "Bonobo ئاكتىپلاش تاللانمىلىرى:"
+
+#: ../bonobo-activation/bonobo-activation-init.c:410
+msgid "Show Bonobo Activation options"
+msgstr "Bonobo نىڭ ئاكتىپلاش تىزىملىكىنى كۆرسەت"
+
+#: ../bonobo-activation/bonobo-activation-init.c:518
+msgid "Bonobo activation options"
+msgstr "Bonobo ئاكتىپلاش تاللانمىلىرى"
+
+#: ../bonobo-activation/bonobo-activation-shlib.c:107
+#, c-format
+msgid "g_module_open of `%s' failed with `%s'"
+msgstr "«%s» نىڭدىكى g_module_open «%s» نىڭ سەۋەبىدىن مەغلۇپ بولدى"
+
+#: ../bonobo-activation/bonobo-activation-shlib.c:126
+#: ../bonobo-activation/bonobo-activation-shlib.c:163
+#, c-format
+msgid "Can't find symbol Bonobo_Plugin_info in `%s'"
+msgstr "«%s» دىن Bonobo_Plugin_info بەلگىسىنى تاپقىلى بولمىدى"
+
+#: ../bonobo-activation/bonobo-activation-shlib.c:212
+#, c-format
+msgid "Factory `%s' returned NIL for `%s'"
+msgstr "`%s' دېگەن زاۋۇت `%s' غا NIL قايتۇردى"
+
+#: ../bonobo-activation/bonobo-activation-shlib.c:229
+#, c-format
+msgid "Shlib `%s' didn't contain `%s'"
+msgstr "Shlib «%s»  ئىچىدە «%s» يوق"
+
+#: ../bonobo/bonobo-application.c:352
+msgid "Name"
+msgstr "ئاتى"
+
+#: ../bonobo/bonobo-application.c:352
+msgid "Application unique name"
+msgstr "پروگراممىنىڭ بىردىنبىر ئاتى"
+
+#: ../bonobo/bonobo-object.c:929
+msgid "POA"
+msgstr "POA"
+
+#: ../bonobo/bonobo-object.c:929
+msgid "Custom CORBA POA"
+msgstr "ئىختىيارىي CORBA POA"
+
+#: ../bonobo/bonobo-exception.c:154
+msgid "An unsupported action was attempted"
+msgstr "ئىشلەتكىلى بولمايدىغان مەشغۇلات ئېلىپ بېرىلدى"
+
+#: ../bonobo/bonobo-exception.c:157
+msgid "IO Error"
+msgstr "IO خاتالىقى"
+
+#: ../bonobo/bonobo-exception.c:160
+msgid "Invalid argument value"
+msgstr "پارامېتىر قىممىتى ئىناۋەتسىز"
+
+#: ../bonobo/bonobo-exception.c:164
+msgid "Object not found"
+msgstr "نەڭ تېپىلمىدى"
+
+#: ../bonobo/bonobo-exception.c:167
+msgid "Syntax error in object description"
+msgstr "نەڭ چۈشەندۈرۈشىدە گرامماتىكا خاتالىقى بار"
+
+#: ../bonobo/bonobo-exception.c:172
+msgid "Cannot activate object from factory"
+msgstr "factory(زاۋۇت) دىكى نەڭنى ئاكتىپلىغىلى بولمىدى"
+
+#: ../bonobo/bonobo-exception.c:177
+msgid "No permission to access stream"
+msgstr "ئېقىمنى زىيارەت قىلىش ھوقۇقى يوق"
+
+#: ../bonobo/bonobo-exception.c:180
+msgid "An unsupported stream action was attempted"
+msgstr "ئىشلەتكىلى بولمايدىغان ئېقىم مەھسۇلاتى ئېلىپ بېرىلدى"
+
+#: ../bonobo/bonobo-exception.c:183
+msgid "IO Error on stream"
+msgstr "ئېقىمدا IO خاتالىقى بار"
+
+#: ../bonobo/bonobo-exception.c:187
+msgid "IO Error on storage"
+msgstr "ساقلىغۇچتا IO خاتالىقى بار"
+
+#: ../bonobo/bonobo-exception.c:190
+msgid "Name already exists in storage"
+msgstr "ساقلىغۇچتا(storage) بۇ ئات مەۋجۇت"
+
+#: ../bonobo/bonobo-exception.c:193
+msgid "Object not found in storage"
+msgstr "ساقلىغۇچ(storage)تىن نەڭ تېپىلمىدى"
+
+#: ../bonobo/bonobo-exception.c:196
+msgid "No permission to do operation on storage"
+msgstr "ساقلىغۇچ(storage) قا مەشغۇلات قىلىش ھوقۇقى يوق"
+
+#: ../bonobo/bonobo-exception.c:198
+msgid "An unsupported storage action was attempted"
+msgstr "ئىشلەتكىلى بولمايدىغان ساقلىغۇچ(storage) مەھسۇلاتى ئېلىپ بېرىلدى"
+
+#: ../bonobo/bonobo-exception.c:200
+msgid "Object is not a stream"
+msgstr "نەڭ ئېقىم ئەمەس"
+
+#: ../bonobo/bonobo-exception.c:203
+msgid "Object is not a storage"
+msgstr "نەڭ ساقلىغۇچ(storage) ئەمەس"
+
+#: ../bonobo/bonobo-exception.c:206
+msgid "Storage is not empty"
+msgstr "ساقلىغۇچ(storage) قۇرۇق ئەمەس"
+
+#: ../bonobo/bonobo-exception.c:210
+msgid "malformed user interface XML description"
+msgstr "فورماتى توغرا بولمىغان كۆرۈنمەيۈز XML چۈشەندۈرۈشى"
+
+#: ../bonobo/bonobo-exception.c:213
+msgid "invalid path to XML user interface element"
+msgstr "كۆرۈنمەيۈز XML ئېلېمېنتىنىڭ يولى ئىناۋەتسىز"
+
+#: ../bonobo/bonobo-exception.c:216
+msgid "the requested UI attribute didn't exist"
+msgstr "ئىلتىماس قىلىنغان كۆرۈنمەيۈز(UI) خاسلىقى مەۋجۇت ئەمەس"
+
+#: ../bonobo/bonobo-exception.c:219
+msgid "Unknown command or verb"
+msgstr "نامەلۇم بۇيرۇق ياكى پېئىل"
+
+#: ../bonobo/bonobo-exception.c:222
+msgid "Command is insensitive"
+msgstr "بۇيرۇق سەزگۈر ئەمەس"
+
+#: ../bonobo/bonobo-exception.c:226
+msgid "incorrect data type"
+msgstr "سانلىق-مەلۇمات تىپى توغرا ئەمەس"
+
+#: ../bonobo/bonobo-exception.c:229
+msgid "stream not found"
+msgstr "ئېقىم تېپىلمىدى"
+
+#: ../bonobo/bonobo-exception.c:233
+msgid "property not found"
+msgstr "خاسلىق تېپىلمىدى"
+
+#: ../bonobo/bonobo-exception.c:236
+msgid "property has invalid type"
+msgstr "خاسلىقنىڭ تىپى  ئىناۋەتسىز"
+
+#: ../bonobo/bonobo-exception.c:239
+msgid "property is read only"
+msgstr "خاسلىقنى «ئوقۇش»قىلە بولىدۇ"
+
+#: ../bonobo/bonobo-exception.c:242
+msgid "config database backend failed "
+msgstr "تەڭشەك ساندانىنىڭ ئاخىرقى ئۇچى مەغلۇپ بولدى "
+
+#: ../bonobo/bonobo-exception.c:246
+msgid "Moniker interface cannot be found"
+msgstr "Moniker ئارايۈزىنى تاپقىلى بولمىدى"
+
+#: ../bonobo/bonobo-exception.c:249
+msgid "Moniker activation timed out"
+msgstr "Moniker نى ئاكتىپلاش ۋاقتى قەرەلدىن ئېشىپ كەتتى"
+
+#: ../bonobo/bonobo-exception.c:252
+msgid "Syntax error within moniker"
+msgstr "Moniker دا گرامماتىكىلىق خاتالىق بار"
+
+#: ../bonobo/bonobo-exception.c:255
+msgid "Moniker has an unknown moniker prefix"
+msgstr "Moniker دا بىر نامەلۇم ئالدى قوشۇلغۇچى بار"
+
+#: ../bonobo/bonobo-exception.c:279
+msgid "Error checking error; no exception"
+msgstr "خاتالىقنى تەكشۈرۈۋاتقاندا خاتالىق كۆرۈلدى؛ exception يوق"
+
+#: ../bonobo/bonobo-exception.c:288
+msgid "General activation error with no description"
+msgstr "چۈشەندۈرۈشى يوق ئادەتتىكى ئاكتىپلاش خاتالىقى"
+
+#: ../bonobo/bonobo-moniker.c:342
+#, c-format
+msgid "Failed to resolve, or extend '%s'"
+msgstr "'%s' نى يېشىش ياكى يېيىش مەغلۇپ بولدى"
+
+#: ../bonobo/bonobo-moniker-util.c:247
+msgid "Failed to activate object"
+msgstr "نەڭنى ئاكتىپلاش مەغلۇپ بولدى"
+
+#: ../monikers/bonobo-moniker-oaf.c:53
+#, c-format
+msgid "Exception activating '%s'"
+msgstr "«%s» نى ئاكتىپلاۋاتقاندا بىنورماللىق يۈز بەردى"
+
+#: ../monikers/bonobo-moniker-oaf.c:62
+#, c-format
+msgid "Failed to activate '%s'"
+msgstr "'%s' نى ئاكتىپلاش مەغلۇپ بولدى"
+
+#: ../monikers/Bonobo_Moniker_std.server.in.in.h:1
+msgid "HTTP Moniker"
+msgstr "HTTP Moniker"
+
+#: ../monikers/Bonobo_Moniker_std.server.in.in.h:2
+msgid "ORB IOR handling moniker"
+msgstr "ORB IOR باشقۇرۇش moniker ئى"
+
+#: ../monikers/Bonobo_Moniker_std.server.in.in.h:3
+msgid "Standard Moniker factory"
+msgstr "ئۆلچەملىك Moniker زاۋۇتى"
+
+#: ../monikers/Bonobo_Moniker_std.server.in.in.h:4
+msgid "generic Oaf activation moniker"
+msgstr "ئادەتتىكى Oaf ئاكتىپلاش moniker ئى"
+
+#: ../monikers/Bonobo_Moniker_std.server.in.in.h:5
+msgid "generic Oaf query moniker"
+msgstr "ئادەتتىكى Oaf سۈرۈشتۈرۈش moniker ئى"
+
+#: ../monikers/Bonobo_Moniker_std.server.in.in.h:6
+msgid "generic factory 'new' moniker"
+msgstr "ئادەتتىكى زاۋۇت «يېڭى» moniker ئى"
+
+#: ../monikers/Bonobo_Moniker_std.server.in.in.h:7
+msgid "generic item moniker"
+msgstr "ئادەتتىكى تۈر moniker ئى"
+
+#: ../monikers/Bonobo_Moniker_std.server.in.in.h:8
+msgid "stream MonikerExtender"
+msgstr "ئېقىم MonikerExtender"
+
+#: ../samples/echo/Bonobo_Sample_Echo.server.in.in.h:1
+msgid "Bonobo Echo server factory"
+msgstr "Bonobo Echo مۇلازىمېتىر زاۋۇتى"
+
+#: ../samples/echo/Bonobo_Sample_Echo.server.in.in.h:2
+msgid "Bonobo Echo server sample program"
+msgstr "Bonobo Echo مۇلازىمېتىر ئۈلگە پروگراممىسى"
+
+#: ../samples/echo/Bonobo_Sample_Echo.server.in.in.h:3
+msgid "Echo component"
+msgstr "Echo بۆلەك"
+
+#: ../samples/echo/Bonobo_Sample_Echo.server.in.in.h:4
+msgid "Echo component factory"
+msgstr "Echo بۆلەك زاۋۇتى"
+
+#: ../samples/echo/echo-client.c:24
+msgid "I could not initialize Bonobo"
+msgstr "Bonobo نى دەسلەپلەشتۈرەلمىدىم"
+
+#: ../samples/echo/echo-client.c:35
+msgid "Could not create an instance of the sample echo component"
+msgstr "ئۈلگە Echo بۆلەكنىڭ مىسالىنى قۇرالمىدى"
+
+#: ../samples/echo/echo-client.c:47
+#, c-format
+msgid "An exception occurred '%s'"
+msgstr "بىنورماللىق كۆرۈلدى «%s»"
+
+#: ../utils/bonobo-activation-sysconf.c:83
+#, c-format
+msgid "Could not save configuration file.\n"
+msgstr "سەپلىمە ھۆججەتنى ساقلىيالمىدى.\n"
+
+#: ../utils/bonobo-activation-sysconf.c:84
+#, c-format
+msgid "Please, make sure you have permissions to write to '%s'.\n"
+msgstr "«%s» نىڭغا يېزىش ھوقۇقىڭىز بارمۇ جەزملەڭ.\n"
+
+#: ../utils/bonobo-activation-sysconf.c:87
+#, c-format
+msgid "Successfully wrote configuration file.\n"
+msgstr "سەپلىمە ھۆججەت مۇۋەپپەقىيەتلىك يېزىلدى.\n"
+
+#: ../utils/bonobo-activation-sysconf.c:104
+#, c-format
+msgid ""
+"configuration file is:\n"
+"    %s\n"
+msgstr ""
+"سەپلىمە ھۆججەت：\n"
+"    %s\n"
+
+#: ../utils/bonobo-activation-sysconf.c:146
+#, c-format
+msgid "%s already in configuration file\n"
+msgstr "%s سەپلىمە ھۆججەتنىڭ ئىچىدە بار\n"
+
+#: ../utils/bonobo-activation-sysconf.c:166
+#, c-format
+msgid "there is not a properly structured configuration file\n"
+msgstr "سەپلىمە ھۆججەتنىڭ قۇرۇلمىسى مۇۋاپىق ئەمەس\n"
+
+#: ../utils/bonobo-activation-sysconf.c:237
+#, c-format
+msgid "Bonobo-activation configuration file contains:\n"
+msgstr "Bonobo-activation سەپلىمە ھۆججەتتە تۆۋەندىكىلەر بار：\n"
+
+#: ../utils/bonobo-activation-sysconf.c:267
+msgid "Directory to remove from configuration file"
+msgstr "سەپلىمە ھۆججەتتىن ئۆچۈرىدىغان مۇندەرىجە"
+
+#: ../utils/bonobo-activation-sysconf.c:267
+#: ../utils/bonobo-activation-sysconf.c:269
+msgid "PATH"
+msgstr "PATH"
+
+#: ../utils/bonobo-activation-sysconf.c:269
+msgid "Directory to add to configuration file"
+msgstr "سەپلىمە ھۆججەتكە قوشىدىغان مۇندەرىجە"
+
+#: ../utils/bonobo-activation-sysconf.c:271
+msgid "Display directories in configuration file"
+msgstr "سەپلىمە ھۆججەتتىكى مۇندەرىجىلەرنى كۆرسەت"
+
+#: ../utils/bonobo-activation-sysconf.c:273
+msgid "Display path to configuration file"
+msgstr "سەپلىمە ھۆججەت يولىنى كۆرسەت"
