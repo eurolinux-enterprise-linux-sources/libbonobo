@@ -6,7 +6,7 @@
 Summary: Bonobo component system
 Name: libbonobo
 Version: 2.32.1
-Release: 5%{?dist}
+Release: 7%{?dist}
 URL: http://ftp.gnome.org
 Source0: http://download.gnome.org/sources/libbonobo/2.32/%{name}-%{version}.tar.bz2
 License: GPLv2+ and LGPLv2+
@@ -117,6 +117,12 @@ mkdir -p $RPM_BUILD_ROOT%{_prefix}/lib/bonobo/servers
 %{_datadir}/gtk-doc/html/bonobo-activation
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 2.32.1-7
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 2.32.1-6
+- Mass rebuild 2013-12-27
+
 * Thu May 02 2013 Colin Walters <walters@verbum.org> - 2.32.1-5
 - Backport patch from upstream to fix build with recent GLib
 
